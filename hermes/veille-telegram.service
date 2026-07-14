@@ -1,0 +1,14 @@
+[Unit]
+Description=Veille robotique - listener Telegram de validation (Late)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/veille-robotique
+ExecStart=/usr/bin/python3 /root/veille-robotique/hermes/telegram_listener.py
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

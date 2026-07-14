@@ -181,6 +181,17 @@ python3 scripts/send_email.py
 programmés »** avec heures de départ, pour que Nico puisse les modifier/annuler
 sur getlate.dev avant publication. À lancer APRÈS post_x.py.)
 
+### 6 bis. Notification Telegram (avec boutons de validation)
+
+```bash
+python3 scripts/notify_telegram.py
+```
+
+(Envoie à Nico sur Telegram : le récap de l'édition + chaque tweet programmé avec
+un bouton ❌ Annuler + le post viral avec ✅ Publier / 🗑 Jeter. Les clics sont
+traités par le démon `hermes/telegram_listener.py` qui tourne sur le VPS Hermes.
+Requiert `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` ; si absents, étape sautée.)
+
 ### 7. Créer le brouillon Substack
 
 ```bash
