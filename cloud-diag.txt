@@ -1,0 +1,43 @@
+Diagnostic cloud — veille-robotique
+Date : 2026-07-14
+
+1) Variables d'environnement
+-----------------------------
+APIFY_TOKEN: ABSENTE
+VERCEL_TOKEN: ABSENTE
+RESEND_API_KEY: ABSENTE
+LATE_API_KEY: ABSENTE
+SUBSTACK_SID: ABSENTE
+XAI_API_KEY: ABSENTE
+
+2) Test d'envoi email (Resend)
+-------------------------------
+Commande :
+curl -s -w '\nHTTP:%{http_code}' -X POST https://api.resend.com/emails \
+  -H "Authorization: Bearer $RESEND_API_KEY" -H 'Content-Type: application/json' \
+  -d '{"from":"Veille Robotique <veille-robotique@comptoiria.com>","to":["nicoguyon@gmail.com"],"subject":"✅ Self-test 2 — agent cloud veille robotique","html":"<p>Resend OK depuis le cloud.</p>"}'
+
+Résultat : échec réseau avant même d'atteindre l'API Resend.
+- curl exit code 56 (échec de réception réseau), HTTP:000
+- Diagnostic verbeux : le proxy sortant de l'environnement (127.0.0.1:38021) répond
+  "HTTP/1.1 403 Forbidden" au CONNECT vers api.resend.com:443
+  ("gateway answered 403 to CONNECT (policy denial or upstream failure)")
+- Confirmé via GET $HTTPS_PROXY/__agentproxy/status → recentRelayFailures liste deux
+  rejets connect_rejected vers api.resend.com:443 à 12:16:52Z et 12:16:59Z.
+- Conclusion : la politique réseau de cet environnement bloque les appels sortants vers
+  api.resend.com (indépendamment du fait que RESEND_API_KEY soit absente).
+
+3) Environnement
+-----------------
+python3 --version : Python 3.11.15
+which vercel       : vercel-absent (CLI vercel non installée sur le PATH)
+
+Résumé
+------
+Aucune des 6 variables d'environnement attendues (APIFY_TOKEN, VERCEL_TOKEN,
+RESEND_API_KEY, LATE_API_KEY, SUBSTACK_SID, XAI_API_KEY) n'est présente dans cet
+environnement cloud. De plus, même avec une clé Resend valide, l'appel sortant vers
+api.resend.com serait bloqué par la politique réseau du proxy de l'environnement
+(403 sur le CONNECT). La CLI vercel n'est pas installée. Le pipeline de veille ne peut
+donc pas s'exécuter correctement dans cet environnement en l'état : ni secrets
+configurés, ni accès réseau sortant vers Resend, ni CLI Vercel disponible.
