@@ -64,7 +64,7 @@ def main():
     key = load_key("RESEND_API_KEY")
     if not key:
         sys.exit("RESEND_API_KEY introuvable")
-    sender = load_key("RESEND_FROM_DEFAULT", "onboarding@resend.dev")
+    sender = "veille-robotique@comptoiria.com"  # domaine vérifié Resend
 
     data = json.loads((ROOT / "data" / "latest.json").read_text())
     items = [i for c in data.get("categories", []) for i in c.get("items", [])]
@@ -100,9 +100,13 @@ def main():
     req = urllib.request.Request("https://api.resend.com/emails",
                                  data=json.dumps(payload).encode(),
                                  headers={"Authorization": f"Bearer {key}",
-                                          "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        print("✓ Email envoyé :", json.load(r).get("id"))
+                                          "Content-Type": "application/json",
+                                          "User-Agent": "curl/8.7.1"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            print("✓ Email envoyé :", json.load(r).get("id"))
+    except urllib.error.HTTPError as e:
+        sys.exit(f"Resend {e.code}: {e.read().decode()[:500]}")
 
 
 if __name__ == "__main__":
