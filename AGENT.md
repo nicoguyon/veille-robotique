@@ -90,11 +90,14 @@ généré et vérifie qu'il contient bien les sections et des médias.
 ### 4. Déployer sur Vercel
 
 ```bash
+# le dossier .vercel n'est pas versionné : lier d'abord le projet (idempotent)
+vercel link --yes --token "$VERCEL_TOKEN" --scope nicoguyon-gmailcoms-projects --project veille-robotique
 vercel --prod --yes --token "$VERCEL_TOKEN"
 ```
 
 (projet Vercel `veille-robotique`, domaine de projet
-`veille-robotique.comptoiria.com` — déjà configuré, suit les redeploys).
+`veille-robotique.comptoiria.com` — déjà configuré, suit les redeploys ;
+si le CLI vercel n'est pas installé : `npm i -g vercel`).
 
 ### 5. Envoyer l'email récap
 
