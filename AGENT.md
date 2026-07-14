@@ -83,10 +83,13 @@ La page affiche un classement permanent des 10 meilleurs humanoïdes du marché,
 détourés et à l'échelle (`public/robots/*.png`). **Chaque semaine, réévalue ce
 classement en fonction des news** :
 
-- Ajuste les `score` (composite : locomotion, manipulation, IA embarquée,
-  industrialisation, momentum) quand une news le justifie (démo majeure,
-  déploiement réel, jalon de production). Mets `trend` à `↑`/`↓`/`=` selon le
-  mouvement de la semaine, et actualise `fact` (le fait marquant) et `status`.
+- Ajuste les **notes par critère** dans `scores` (locomotion, manipulation, ia,
+  industrialisation, momentum — sur 10, pas 0,5) quand une news le justifie
+  (démo majeure, déploiement réel, jalon de production). Le `score` global =
+  moyenne des 5 critères arrondie à 0,1 — recalcule-le à chaque modification.
+  Mets `trend` à `↑`/`↓`/`=` selon le mouvement de la semaine, et actualise
+  `fact` (le fait marquant) et `status`. Les notes par critère sont visibles au
+  clic sur la page — chaque changement doit être défendable.
 - Re-trie `rank` par score décroissant et mets `updated` à la date du jour.
 - Si un nouveau robot mérite d'entrer dans le Top 10 : ajoute son entrée
   (nom, hauteur réelle en m) et crée son image détourée → trouve une photo
