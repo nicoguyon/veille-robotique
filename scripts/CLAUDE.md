@@ -7,5 +7,6 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
+| #8467 | 8:37 PM | 🔴 | Substack publication script upgraded with freshness filtering and newsletter_intro support | ~489 |
 | #8456 | 8:27 PM | 🟣 | Top 10 humanoid robots interactive gallery added to newsletter page | ~443 |
 </claude-mem-context>
