@@ -1,0 +1,410 @@
+{
+ "date": "2026-07-14",
+ "week_label": "Semaine du 7 au 14 juillet 2026",
+ "edito": "La semaine où les mains ont volé la vedette : 1X dévoile les mains à tendons du NEO (25 degrés de liberté, 11 millions de vues), Figure 03 se met à courir et la main d'Optimus V3 impressionne à l'approche de la production de masse. Pendant ce temps, la Chine annonce plus de 100 000 humanoïdes produits en 2026 et les capitaux affluent — de Paradigm (1,2 Md$) aux notes de Morgan Stanley et UBS.",
+ "stats": {
+  "tweets_analyses": 165,
+  "sources": 120
+ },
+ "categories": [
+  {
+   "id": "constructeurs",
+   "emoji": "🤖",
+   "title": "Constructeurs & humanoïdes",
+   "intro": "Annonces produits et hardware des fabricants — la semaine des mains robotiques.",
+   "items": [
+    {
+     "title": "1X dévoile les mains du NEO : 25 degrés de liberté, « une API vers le monde physique »",
+     "summary": "1X Technologies présente les nouvelles mains à tendons de son humanoïde NEO : 25 degrés de liberté, capteurs tactiles, précision proche de la main humaine — et même étanchéité IP68 qui permet au robot de se laver les mains. L'annonce, teasée toute la semaine par le designer Bernt Bornich, a dominé la conversation robotique avec plus de 11 millions de vues.",
+     "date": "2026-07-09",
+     "url": "https://x.com/1x_tech/status/2075252899442204952",
+     "author_handle": "1x_tech",
+     "metrics": {
+      "likes": 16045,
+      "views": 11280314
+     },
+     "featured": true,
+     "company": "1X",
+     "tag": "Humanoïde",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2075252791493435392/img/AI3FWkQeto8GYkBD.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2075252791493435392/vid/avc1/3840x2160/yblzgqiFJUI5TSpw.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Figure 03 court à 2 m/s grâce à Helix AI",
+     "summary": "Figure montre son humanoïde Figure 03 en train de courir avec une foulée fluide et naturelle, à environ 2 mètres par seconde, piloté par son modèle Helix. Une étape marquante de locomotion dynamique pour un robot destiné au travail en entrepôt et à la maison.",
+     "date": "2026-07-13",
+     "url": "https://x.com/spaceandtech_/status/2076691987424780481",
+     "author_handle": "spaceandtech_",
+     "metrics": {
+      "likes": 518,
+      "views": 35443
+     },
+     "featured": true,
+     "company": "Figure",
+     "tag": "Humanoïde",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2076691852808568834/img/QtbDgFV4D4MiFKgQ.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2076691852808568834/vid/avc1/1080x1080/6e5DSpchuluClv5I.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Optimus V3 : la main progresse, la production de masse approche",
+     "summary": "Les dernières images de la main d'Optimus V3 impressionnent : au-delà de la préhension, le robot module sa force selon les objets. En parallèle, plusieurs sources de la supply chain évoquent un démarrage de la production de masse dès le mois prochain, avec une montée vers 1 000 unités/mois — et le démontage des lignes Model S/X à Fremont pour faire de la place.",
+     "date": "2026-07-10",
+     "url": "https://x.com/MarioNawfal/status/2075495237980508313",
+     "author_handle": "MarioNawfal",
+     "metrics": {
+      "likes": 4360,
+      "views": 397610
+     },
+     "featured": true,
+     "company": "Tesla",
+     "tag": "Humanoïde",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2075476533762732032/img/ZrPZvBKcpGRgIAUR.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2075476533762732032/vid/avc1/2160x2160/gvpyqBgQMksYEQti.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Unitree lance sa compétition de combat d'humanoïdes 2026",
+     "summary": "Unitree invite le public au « 2026 Humanoid Robot Combat Competition » et au UniBot World Challenge : ses robots s'affronteront pour éprouver la robustesse du hardware en conditions extrêmes. Le teaser a dépassé les 2 millions de vues.",
+     "date": "2026-07-09",
+     "url": "https://x.com/UnitreeRobotics/status/2075157558889984076",
+     "author_handle": "UnitreeRobotics",
+     "metrics": {
+      "likes": 842,
+      "views": 2175976
+     },
+     "company": "Unitree",
+     "tag": "Événement",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2075155706051952640/img/WCumT-PpopPudbmf.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2075155706051952640/vid/avc1/1280x720/G4zzbYDNRK_Juwan.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Munro démonte entièrement le Unitree G1",
+     "summary": "L'équipe de Sandy Munro (référence du teardown automobile) désosse le G1 de Unitree pour analyser son ingénierie et sa structure de coûts. Un regard rare et concret sur ce qui rend les humanoïdes chinois si compétitifs.",
+     "date": "2026-07-08",
+     "url": "https://x.com/live_munro/status/2074857134257295546",
+     "author_handle": "live_munro",
+     "metrics": {
+      "likes": 639,
+      "views": 60393
+     },
+     "company": "Unitree",
+     "tag": "Teardown",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2074855918957674498/img/vrQ_P_umBocaGpiN.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2074855918957674498/vid/avc1/3840x2160/cTsgAuGQEwJfAPqU.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Un ex-Tesla Optimus lance Mondo, un petit robot compagnon",
+     "summary": "Un an après avoir quitté l'équipe Optimus, Shuo Yang dévoile Mondo, un robot compagnon pensé pour les enfants. Signal de plus : les talents des grands programmes humanoïdes essaiment dans des startups produits.",
+     "date": "2026-07-08",
+     "url": "https://x.com/ShuoYangAIR/status/2074874012866691416",
+     "author_handle": "ShuoYangAIR",
+     "metrics": {
+      "likes": 901,
+      "views": 175882
+     },
+     "company": "Mondo",
+     "tag": "Nouveau venu",
+     "media": {
+      "type": "photo",
+      "image": "https://pbs.twimg.com/media/HMtuivFbcAAHu7Q.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "marche",
+   "emoji": "💰",
+   "title": "Marché, levées & valorisations",
+   "intro": "Les capitaux, les chiffres de production et les valos de la semaine.",
+   "items": [
+    {
+     "title": "La Chine dépassera les 100 000 humanoïdes produits en 2026",
+     "summary": "Selon le ministère chinois de l'Industrie (MIIT), la production de masse d'humanoïdes dépassera les 100 000 unités cette année. Il y a quelques mois, les estimations les plus optimistes tablaient sur 50 000 : le rythme de la montée en cadence chinoise surprend tout le monde.",
+     "date": "2026-07-08",
+     "url": "https://x.com/interesting_aIl/status/2074666437663216073",
+     "author_handle": "interesting_aIl",
+     "metrics": {
+      "likes": 329,
+      "views": 35658
+     },
+     "tag": "Production",
+     "media": {
+      "type": "photo",
+      "image": "https://pbs.twimg.com/media/HMqyD5dXMAAf3yh.jpg"
+     }
+    },
+    {
+     "title": "Morgan Stanley : les roulements, pari d'infrastructure de la robotique",
+     "summary": "Morgan Stanley publie une note sur les roulements (« bearings ») comme exposition cœur au boom robotique : une croissance agnostique à l'architecture des robots — quel que soit le gagnant, il faudra des roulements. Le thème « picks & shovels » gagne la robotique.",
+     "date": "2026-07-13",
+     "url": "https://x.com/pequityresearch/status/2076492034064425454",
+     "author_handle": "pequityresearch",
+     "metrics": {
+      "likes": 7469,
+      "views": 4676264
+     },
+     "tag": "Analyse",
+     "media": {
+      "type": "photo",
+      "image": "https://pbs.twimg.com/media/HNEuUvaWYAAVias.png"
+     }
+    },
+    {
+     "title": "Paradigm lève un 4ᵉ fonds de 1,2 Md$ ouvert à la robotique",
+     "summary": "Le fonds crypto Paradigm élargit son mandat : 1,2 milliard de dollars à investir dans la crypto, l'IA et la robotique. Un signal fort de plus que le capital-risque se repositionne sur la « physical AI ».",
+     "date": "2026-07-08",
+     "url": "https://x.com/matthuang/status/2074873573983035801",
+     "author_handle": "matthuang",
+     "metrics": {
+      "likes": 2443,
+      "views": 545806
+     },
+     "tag": "Levée",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2074853720349970432/img/otPIsJy-LrK3pdK0.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2074853720349970432/vid/avc1/1440x1080/hXAM6e4Bj8ffjm6U.mp4?tag=28"
+     }
+    },
+    {
+     "title": "L'investissement VC en robotique s'infléchit nettement à la hausse",
+     "summary": "L'investissement en capital-risque dans la robotique reste sous ses niveaux pré-ChatGPT de 2021, mais la courbe s'infléchit clairement. Plusieurs fonds — dont celui qu'annonce Yann LeCun — se positionnent sur l'IA incarnée.",
+     "date": "2026-07-09",
+     "url": "https://x.com/Rewkang/status/2075296441686163903",
+     "author_handle": "Rewkang",
+     "metrics": {
+      "likes": 347,
+      "views": 72837
+     },
+     "tag": "VC"
+    },
+    {
+     "title": "UBS relève son objectif Tesla à 442 $ sur la « physical AI »",
+     "summary": "L'analyste UBS Joseph Spak relève son objectif de cours sur Tesla de 364 à 442 $, en citant le potentiel long terme du groupe dans l'IA physique — Optimus en tête. Les humanoïdes commencent à peser dans les valorisations des grands groupes.",
+     "date": "2026-07-09",
+     "url": "https://x.com/SawyerMerritt/status/2075225453837635805",
+     "author_handle": "SawyerMerritt",
+     "metrics": {
+      "likes": 2540,
+      "views": 88935
+     },
+     "company": "Tesla",
+     "tag": "Valorisation",
+     "media": {
+      "type": "photo",
+      "image": "https://pbs.twimg.com/media/HMyudykXAAAPACo.jpg"
+     }
+    },
+    {
+     "title": "Le marché des humanoïdes promis à une croissance explosive",
+     "summary": "Selon MarketsandMarkets, le marché du robot humanoïde doit être multiplié plusieurs fois d'ici 2030, porté par la logistique, l'industrie et les services. Les projections des cabinets s'alignent sur le scénario d'une adoption rapide.",
+     "date": "2026-07-08",
+     "url": "https://x.com/tslaming/status/2074697039620034641",
+     "author_handle": "tslaming",
+     "metrics": {
+      "likes": 569,
+      "views": 24930
+     },
+     "tag": "Marché",
+     "media": {
+      "type": "photo",
+      "image": "https://pbs.twimg.com/media/HMrNesKboAAajno.jpg"
+     }
+    },
+    {
+     "title": "Une startup indienne à 5 M$ brevète un moteur sans terres rares",
+     "summary": "Vimag Labs (Bangalore) revendique un brevet sur un moteur électrique sans terres rares — le composant que les constructeurs mondiaux cherchent depuis une décennie. Si la promesse se confirme, c'est un enjeu majeur pour la supply chain des robots comme des VE.",
+     "date": "2026-07-13",
+     "url": "https://x.com/BullTheoryio/status/2076591344030806278",
+     "author_handle": "BullTheoryio",
+     "metrics": {
+      "likes": 4116,
+      "views": 518422
+     },
+     "company": "Vimag Labs",
+     "tag": "Composants",
+     "media": {
+      "type": "photo",
+      "image": "https://pbs.twimg.com/media/HNGHkQua8AAQQ1f.jpg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "demos",
+   "emoji": "🎬",
+   "title": "Démos de la semaine",
+   "intro": "Les vidéos qui ont fait le tour de X.",
+   "items": [
+    {
+     "title": "Les robots BDX de Disney enflamment X : « Disney devient une boîte de robotique »",
+     "summary": "Une démonstration des droïdes expressifs de Disney (issus de 15 ans de recherche publiée) cumule plus de 2 millions de vues. L'animation par apprentissage par renforcement donne aux personnages une présence quasi vivante — et positionne Disney comme un acteur robotique à part entière.",
+     "date": "2026-07-13",
+     "url": "https://x.com/boxcardavid/status/2076729724873961645",
+     "author_handle": "boxcardavid",
+     "metrics": {
+      "likes": 11031,
+      "views": 2122888
+     },
+     "company": "Disney",
+     "tag": "Divertissement",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2076729672143159296/img/Y9DhVuTHQJyeo12U.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2076729672143159296/vid/avc1/640x360/15u4avoMbxNdAO2I.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Atlas fait le show à la Coupe du Monde FIFA 2026",
+     "summary": "Boston Dynamics a amené Atlas au bord de la pelouse du stade NY/NJ devant des dizaines de milliers de spectateurs. L'humanoïde poursuit sa tournée grand public — la robotique s'installe dans la culture populaire.",
+     "date": "2026-07-07",
+     "url": "https://x.com/BostonDynamics/status/2074485444524327297",
+     "author_handle": "BostonDynamics",
+     "metrics": {
+      "likes": 1376,
+      "views": 118733
+     },
+     "company": "Boston Dynamics",
+     "tag": "Événement",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/media/HMoNgAwWYAEmsJy.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2074483828219908099/vid/avc1/1280x720/NYBJzYxCn33PZ4Z7.mp4?tag=14"
+     }
+    },
+    {
+     "title": "« Viking Row » : la flotte de robots rame au QG de Boston Dynamics",
+     "summary": "Fièvre de Coupe du Monde oblige, Boston Dynamics met en scène ses robots dans un aviron viking synchronisé. Au-delà du fun, une démonstration de coordination multi-robots impressionnante.",
+     "date": "2026-07-10",
+     "url": "https://x.com/BostonDynamics/status/2075625943012368443",
+     "author_handle": "BostonDynamics",
+     "metrics": {
+      "likes": 4104,
+      "views": 381528
+     },
+     "company": "Boston Dynamics",
+     "tag": "Fun",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/media/HM4axuzWEAAmJGl.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2075625626761895936/vid/avc1/1280x720/qTy254RcbH8L4Cv6.mp4?tag=14"
+     }
+    }
+   ]
+  },
+  {
+   "id": "recherche",
+   "emoji": "🧠",
+   "title": "Recherche & IA embarquée",
+   "intro": "Modèles de fondation, percées et labos.",
+   "items": [
+    {
+     "title": "Mistral annonce Robostral Navigate, son premier modèle de navigation incarnée",
+     "summary": "Mistral AI entre dans la robotique avec Robostral Navigate, un modèle 8B de navigation qui guide des robots dans des environnements réels. Le français rejoint la course aux modèles de fondation pour la robotique, jusque-là dominée par Physical Intelligence, Google DeepMind et NVIDIA.",
+     "date": "2026-07-08",
+     "url": "https://x.com/MistralAI/status/2074856309438980145",
+     "author_handle": "MistralAI",
+     "metrics": {
+      "likes": 2637,
+      "views": 263759
+     },
+     "company": "Mistral AI",
+     "tag": "Modèle",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2074853105745686528/img/Dnl5t-N13NSdRDU7.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2074853105745686528/vid/avc1/1280x720/g3Q0YrphZ5_nGgaw.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Première chirurgie réalisée par un robot humanoïde",
+     "summary": "Percée préclinique : un humanoïde a réalisé une intervention chirurgicale pour la première fois, en autonomie supervisée. Au-delà du symbole, la démonstration valide la précision atteinte par les mains robotiques de dernière génération.",
+     "date": "2026-07-09",
+     "url": "https://x.com/BrianRoemmele/status/2075216286188245271",
+     "author_handle": "BrianRoemmele",
+     "metrics": {
+      "likes": 607,
+      "views": 105995
+     },
+     "tag": "Percée",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2075216223382720512/img/iLjdso0L48KCRR20.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2075216223382720512/vid/avc1/1082x614/6qLlOryn07MVOwWV.mp4?tag=28"
+     }
+    }
+   ]
+  },
+  {
+   "id": "industrie",
+   "emoji": "🏭",
+   "title": "Industrie & déploiements",
+   "intro": "Les robots au travail, en conditions réelles.",
+   "items": [
+    {
+     "title": "Un humanoïde soudeur déployé dans une usine réelle à Houston",
+     "summary": "Persona AI a déployé son humanoïde dans une installation de soudure à Houston, où il a exécuté des soudures réelles. Après la logistique, le soudage industriel — pénurie de main-d'œuvre oblige — devient un des premiers vrais métiers des humanoïdes.",
+     "date": "2026-07-10",
+     "url": "https://x.com/lukas_m_ziegler/status/2075628957232169107",
+     "author_handle": "lukas_m_ziegler",
+     "metrics": {
+      "likes": 773,
+      "views": 59663
+     },
+     "company": "Persona AI",
+     "tag": "Déploiement",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2075628503869853696/img/rZs4lOqwjfp0gHl_.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2075628503869853696/vid/avc1/576x720/NlmMAY6MwWhIdWeZ.mp4?tag=28"
+     }
+    },
+    {
+     "title": "Spot arrive chez Coca-Cola en Écosse",
+     "summary": "Le quadrupède Spot rejoint l'usine Coca-Cola Europacific Partners d'East Kilbride pour appuyer les équipes de maintenance et de fiabilité : inspections automatisées et détection précoce des pannes.",
+     "date": "2026-07-08",
+     "url": "https://x.com/BostonDynamics/status/2074845530857824263",
+     "author_handle": "BostonDynamics",
+     "metrics": {
+      "likes": 236,
+      "views": 30395
+     },
+     "company": "Boston Dynamics",
+     "tag": "Déploiement",
+     "media": {
+      "type": "video",
+      "image": "https://pbs.twimg.com/media/HMtU_wZWgAEUgYC.jpg",
+      "video": "https://video-s.twimg.com/amplify_video/2074845235364958208/vid/avc1/1280x720/i5tJFDx55BWsGsqG.mp4?tag=14"
+     }
+    },
+    {
+     "title": "Chez Yaskawa, des robots IA produisent… des robots IA",
+     "summary": "Nikkei rapporte que Yaskawa fait produire ses robots dotés d'IA par des robots dotés d'IA, capables d'apprendre de leurs erreurs de vissage et de se corriger seuls. L'usine auto-réplicante n'est plus un concept.",
+     "date": "2026-07-08",
+     "url": "https://x.com/nikkei/status/2075005065207652669",
+     "author_handle": "nikkei",
+     "metrics": {
+      "likes": 2250,
+      "views": 416841
+     },
+     "company": "Yaskawa",
+     "tag": "Automatisation"
+    }
+   ]
+  }
+ ]
+}

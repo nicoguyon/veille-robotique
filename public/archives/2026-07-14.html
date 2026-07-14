@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Veille Robotique — Semaine du 7 au 14 juillet 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF9F6;--ink:#16130F;--muted:#6B655C;--accent:#FF4D00;--card:#FFFFFF;--line:#EBE7DF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.kicker{font-family:'Space Grotesk',sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header.hero{padding:56px 0 36px;border-bottom:1px solid var(--line)}
+.hero .eyebrow{color:var(--accent);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+.hero h1{font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.06;margin:.35em 0 .3em}
+.hero .week{color:var(--muted);font-size:1.05rem}
+.hero .edito{margin-top:18px;font-size:1.12rem;max-width:760px}
+.hero .statline{margin-top:14px;color:var(--muted);font-size:.86rem}
+nav.catnav{position:sticky;top:0;background:rgba(250,249,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:50;overflow-x:auto;white-space:nowrap}
+nav.catnav .wrap{display:flex;gap:6px;padding:10px 20px}
+nav.catnav a{color:var(--ink);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:#fff}
+nav.catnav a:hover{border-color:var(--accent);color:var(--accent)}
+section{padding:40px 0 8px}
+h2{font-size:1.55rem;margin-bottom:6px}
+.kicker{font-size:1.1rem;color:var(--ink)}
+.cat-intro{color:var(--muted);max-width:720px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;margin-top:20px}
+.grid-featured{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(22,19,15,.09)}
+.card-media{position:relative;background:#111;aspect-ratio:16/10}
+.card-media img,.card-media video{width:100%;height:100%;object-fit:cover;display:block}
+.media-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.65);color:#fff;font-size:.72rem;font-weight:600;padding:4px 9px;border-radius:99px;pointer-events:none}
+.card-body{padding:18px 18px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{background:var(--ink);color:#fff;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;letter-spacing:.03em}
+.badge-soft{background:#F1EDE5;color:var(--muted)}
+.card h3{font-size:1.08rem;line-height:1.3}
+.card p{font-size:.92rem;color:#3E3931}
+.card-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:8px;font-size:.82rem;color:var(--muted)}
+.src{color:var(--accent);text-decoration:none;font-weight:600}
+footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer a{color:var(--accent)}
+@media(max-width:640px){.grid{grid-template-columns:1fr}section{padding:30px 0 4px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Veille hebdo · Robotique × X</div>
+  <h1>🤖 Veille Robotique</h1>
+  <div class="week">Semaine du 7 au 14 juillet 2026</div>
+  <p class="edito">La semaine où les mains ont volé la vedette : 1X dévoile les mains à tendons du NEO (25 degrés de liberté, 11 millions de vues), Figure 03 se met à courir et la main d&#x27;Optimus V3 impressionne à l&#x27;approche de la production de masse. Pendant ce temps, la Chine annonce plus de 100 000 humanoïdes produits en 2026 et les capitaux affluent — de Paradigm (1,2 Md$) aux notes de Morgan Stanley et UBS.</p>
+  <div class="statline">165 posts X analysés · 120 comptes suivis</div>
+</div></header>
+<nav class="catnav"><div class="wrap"><a href="#constructeurs">🤖 Constructeurs &amp; humanoïdes</a><a href="#marche">💰 Marché, levées &amp; valorisations</a><a href="#demos">🎬 Démos de la semaine</a><a href="#recherche">🧠 Recherche &amp; IA embarquée</a><a href="#industrie">🏭 Industrie &amp; déploiements</a></div></nav>
+<main class="wrap">
+<section class="featured"><h2 class="kicker">🏆 À la une cette semaine</h2><div class="grid grid-featured"><article class="card card-big">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075252791493435392/img/AI3FWkQeto8GYkBD.jpg"><source src="https://video-s.twimg.com/amplify_video/2075252791493435392/vid/avc1/3840x2160/yblzgqiFJUI5TSpw.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">1X</span><span class="badge badge-soft">Humanoïde</span></div>
+    <h3>1X dévoile les mains du NEO : 25 degrés de liberté, « une API vers le monde physique »</h3>
+    <p>1X Technologies présente les nouvelles mains à tendons de son humanoïde NEO : 25 degrés de liberté, capteurs tactiles, précision proche de la main humaine — et même étanchéité IP68 qui permet au robot de se laver les mains. L&#x27;annonce, teasée toute la semaine par le designer Bernt Bornich, a dominé la conversation robotique avec plus de 11 millions de vues.</p>
+    <div class="card-foot"><span class="metrics">❤️ 16 k · 👁 11,3 M</span><a class="src" href="https://x.com/1x_tech/status/2075252899442204952" target="_blank" rel="noopener">@1x_tech sur X →</a></div>
+  </div>
+</article><article class="card card-big">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2076691852808568834/img/QtbDgFV4D4MiFKgQ.jpg"><source src="https://video-s.twimg.com/amplify_video/2076691852808568834/vid/avc1/1080x1080/6e5DSpchuluClv5I.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Figure</span><span class="badge badge-soft">Humanoïde</span></div>
+    <h3>Figure 03 court à 2 m/s grâce à Helix AI</h3>
+    <p>Figure montre son humanoïde Figure 03 en train de courir avec une foulée fluide et naturelle, à environ 2 mètres par seconde, piloté par son modèle Helix. Une étape marquante de locomotion dynamique pour un robot destiné au travail en entrepôt et à la maison.</p>
+    <div class="card-foot"><span class="metrics">❤️ 518 · 👁 35,4 k</span><a class="src" href="https://x.com/spaceandtech_/status/2076691987424780481" target="_blank" rel="noopener">@spaceandtech_ sur X →</a></div>
+  </div>
+</article><article class="card card-big">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075476533762732032/img/ZrPZvBKcpGRgIAUR.jpg"><source src="https://video-s.twimg.com/amplify_video/2075476533762732032/vid/avc1/2160x2160/gvpyqBgQMksYEQti.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Tesla</span><span class="badge badge-soft">Humanoïde</span></div>
+    <h3>Optimus V3 : la main progresse, la production de masse approche</h3>
+    <p>Les dernières images de la main d&#x27;Optimus V3 impressionnent : au-delà de la préhension, le robot module sa force selon les objets. En parallèle, plusieurs sources de la supply chain évoquent un démarrage de la production de masse dès le mois prochain, avec une montée vers 1 000 unités/mois — et le démontage des lignes Model S/X à Fremont pour faire de la place.</p>
+    <div class="card-foot"><span class="metrics">❤️ 4,4 k · 👁 397,6 k</span><a class="src" href="https://x.com/MarioNawfal/status/2075495237980508313" target="_blank" rel="noopener">@MarioNawfal sur X →</a></div>
+  </div>
+</article></div></section>
+<section id="constructeurs" class="cat"><h2>🤖 Constructeurs &amp; humanoïdes</h2><p class="cat-intro">Annonces produits et hardware des fabricants — la semaine des mains robotiques.</p><div class="grid"><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075155706051952640/img/WCumT-PpopPudbmf.jpg"><source src="https://video-s.twimg.com/amplify_video/2075155706051952640/vid/avc1/1280x720/G4zzbYDNRK_Juwan.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Unitree</span><span class="badge badge-soft">Événement</span></div>
+    <h3>Unitree lance sa compétition de combat d&#x27;humanoïdes 2026</h3>
+    <p>Unitree invite le public au « 2026 Humanoid Robot Combat Competition » et au UniBot World Challenge : ses robots s&#x27;affronteront pour éprouver la robustesse du hardware en conditions extrêmes. Le teaser a dépassé les 2 millions de vues.</p>
+    <div class="card-foot"><span class="metrics">❤️ 842 · 👁 2,2 M</span><a class="src" href="https://x.com/UnitreeRobotics/status/2075157558889984076" target="_blank" rel="noopener">@UnitreeRobotics sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2074855918957674498/img/vrQ_P_umBocaGpiN.jpg"><source src="https://video-s.twimg.com/amplify_video/2074855918957674498/vid/avc1/3840x2160/cTsgAuGQEwJfAPqU.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Unitree</span><span class="badge badge-soft">Teardown</span></div>
+    <h3>Munro démonte entièrement le Unitree G1</h3>
+    <p>L&#x27;équipe de Sandy Munro (référence du teardown automobile) désosse le G1 de Unitree pour analyser son ingénierie et sa structure de coûts. Un regard rare et concret sur ce qui rend les humanoïdes chinois si compétitifs.</p>
+    <div class="card-foot"><span class="metrics">❤️ 639 · 👁 60,4 k</span><a class="src" href="https://x.com/live_munro/status/2074857134257295546" target="_blank" rel="noopener">@live_munro sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><a href="https://x.com/ShuoYangAIR/status/2074874012866691416" target="_blank" rel="noopener"><img src="https://pbs.twimg.com/media/HMtuivFbcAAHu7Q.jpg" alt="" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Mondo</span><span class="badge badge-soft">Nouveau venu</span></div>
+    <h3>Un ex-Tesla Optimus lance Mondo, un petit robot compagnon</h3>
+    <p>Un an après avoir quitté l&#x27;équipe Optimus, Shuo Yang dévoile Mondo, un robot compagnon pensé pour les enfants. Signal de plus : les talents des grands programmes humanoïdes essaiment dans des startups produits.</p>
+    <div class="card-foot"><span class="metrics">❤️ 901 · 👁 175,9 k</span><a class="src" href="https://x.com/ShuoYangAIR/status/2074874012866691416" target="_blank" rel="noopener">@ShuoYangAIR sur X →</a></div>
+  </div>
+</article></div></section><section id="marche" class="cat"><h2>💰 Marché, levées &amp; valorisations</h2><p class="cat-intro">Les capitaux, les chiffres de production et les valos de la semaine.</p><div class="grid"><article class="card">
+  <div class="card-media"><a href="https://x.com/interesting_aIl/status/2074666437663216073" target="_blank" rel="noopener"><img src="https://pbs.twimg.com/media/HMqyD5dXMAAf3yh.jpg" alt="" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge badge-soft">Production</span></div>
+    <h3>La Chine dépassera les 100 000 humanoïdes produits en 2026</h3>
+    <p>Selon le ministère chinois de l&#x27;Industrie (MIIT), la production de masse d&#x27;humanoïdes dépassera les 100 000 unités cette année. Il y a quelques mois, les estimations les plus optimistes tablaient sur 50 000 : le rythme de la montée en cadence chinoise surprend tout le monde.</p>
+    <div class="card-foot"><span class="metrics">❤️ 329 · 👁 35,7 k</span><a class="src" href="https://x.com/interesting_aIl/status/2074666437663216073" target="_blank" rel="noopener">@interesting_aIl sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><a href="https://x.com/pequityresearch/status/2076492034064425454" target="_blank" rel="noopener"><img src="https://pbs.twimg.com/media/HNEuUvaWYAAVias.png" alt="" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge badge-soft">Analyse</span></div>
+    <h3>Morgan Stanley : les roulements, pari d&#x27;infrastructure de la robotique</h3>
+    <p>Morgan Stanley publie une note sur les roulements (« bearings ») comme exposition cœur au boom robotique : une croissance agnostique à l&#x27;architecture des robots — quel que soit le gagnant, il faudra des roulements. Le thème « picks &amp; shovels » gagne la robotique.</p>
+    <div class="card-foot"><span class="metrics">❤️ 7,5 k · 👁 4,7 M</span><a class="src" href="https://x.com/pequityresearch/status/2076492034064425454" target="_blank" rel="noopener">@pequityresearch sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2074853720349970432/img/otPIsJy-LrK3pdK0.jpg"><source src="https://video-s.twimg.com/amplify_video/2074853720349970432/vid/avc1/1440x1080/hXAM6e4Bj8ffjm6U.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge badge-soft">Levée</span></div>
+    <h3>Paradigm lève un 4ᵉ fonds de 1,2 Md$ ouvert à la robotique</h3>
+    <p>Le fonds crypto Paradigm élargit son mandat : 1,2 milliard de dollars à investir dans la crypto, l&#x27;IA et la robotique. Un signal fort de plus que le capital-risque se repositionne sur la « physical AI ».</p>
+    <div class="card-foot"><span class="metrics">❤️ 2,4 k · 👁 545,8 k</span><a class="src" href="https://x.com/matthuang/status/2074873573983035801" target="_blank" rel="noopener">@matthuang sur X →</a></div>
+  </div>
+</article><article class="card">
+  
+  <div class="card-body">
+    <div class="card-badges"><span class="badge badge-soft">VC</span></div>
+    <h3>L&#x27;investissement VC en robotique s&#x27;infléchit nettement à la hausse</h3>
+    <p>L&#x27;investissement en capital-risque dans la robotique reste sous ses niveaux pré-ChatGPT de 2021, mais la courbe s&#x27;infléchit clairement. Plusieurs fonds — dont celui qu&#x27;annonce Yann LeCun — se positionnent sur l&#x27;IA incarnée.</p>
+    <div class="card-foot"><span class="metrics">❤️ 347 · 👁 72,8 k</span><a class="src" href="https://x.com/Rewkang/status/2075296441686163903" target="_blank" rel="noopener">@Rewkang sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><a href="https://x.com/SawyerMerritt/status/2075225453837635805" target="_blank" rel="noopener"><img src="https://pbs.twimg.com/media/HMyudykXAAAPACo.jpg" alt="" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Tesla</span><span class="badge badge-soft">Valorisation</span></div>
+    <h3>UBS relève son objectif Tesla à 442 $ sur la « physical AI »</h3>
+    <p>L&#x27;analyste UBS Joseph Spak relève son objectif de cours sur Tesla de 364 à 442 $, en citant le potentiel long terme du groupe dans l&#x27;IA physique — Optimus en tête. Les humanoïdes commencent à peser dans les valorisations des grands groupes.</p>
+    <div class="card-foot"><span class="metrics">❤️ 2,5 k · 👁 88,9 k</span><a class="src" href="https://x.com/SawyerMerritt/status/2075225453837635805" target="_blank" rel="noopener">@SawyerMerritt sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><a href="https://x.com/tslaming/status/2074697039620034641" target="_blank" rel="noopener"><img src="https://pbs.twimg.com/media/HMrNesKboAAajno.jpg" alt="" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge badge-soft">Marché</span></div>
+    <h3>Le marché des humanoïdes promis à une croissance explosive</h3>
+    <p>Selon MarketsandMarkets, le marché du robot humanoïde doit être multiplié plusieurs fois d&#x27;ici 2030, porté par la logistique, l&#x27;industrie et les services. Les projections des cabinets s&#x27;alignent sur le scénario d&#x27;une adoption rapide.</p>
+    <div class="card-foot"><span class="metrics">❤️ 569 · 👁 24,9 k</span><a class="src" href="https://x.com/tslaming/status/2074697039620034641" target="_blank" rel="noopener">@tslaming sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><a href="https://x.com/BullTheoryio/status/2076591344030806278" target="_blank" rel="noopener"><img src="https://pbs.twimg.com/media/HNGHkQua8AAQQ1f.jpg" alt="" loading="lazy"></a></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Vimag Labs</span><span class="badge badge-soft">Composants</span></div>
+    <h3>Une startup indienne à 5 M$ brevète un moteur sans terres rares</h3>
+    <p>Vimag Labs (Bangalore) revendique un brevet sur un moteur électrique sans terres rares — le composant que les constructeurs mondiaux cherchent depuis une décennie. Si la promesse se confirme, c&#x27;est un enjeu majeur pour la supply chain des robots comme des VE.</p>
+    <div class="card-foot"><span class="metrics">❤️ 4,1 k · 👁 518,4 k</span><a class="src" href="https://x.com/BullTheoryio/status/2076591344030806278" target="_blank" rel="noopener">@BullTheoryio sur X →</a></div>
+  </div>
+</article></div></section><section id="demos" class="cat"><h2>🎬 Démos de la semaine</h2><p class="cat-intro">Les vidéos qui ont fait le tour de X.</p><div class="grid"><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2076729672143159296/img/Y9DhVuTHQJyeo12U.jpg"><source src="https://video-s.twimg.com/amplify_video/2076729672143159296/vid/avc1/640x360/15u4avoMbxNdAO2I.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Disney</span><span class="badge badge-soft">Divertissement</span></div>
+    <h3>Les robots BDX de Disney enflamment X : « Disney devient une boîte de robotique »</h3>
+    <p>Une démonstration des droïdes expressifs de Disney (issus de 15 ans de recherche publiée) cumule plus de 2 millions de vues. L&#x27;animation par apprentissage par renforcement donne aux personnages une présence quasi vivante — et positionne Disney comme un acteur robotique à part entière.</p>
+    <div class="card-foot"><span class="metrics">❤️ 11 k · 👁 2,1 M</span><a class="src" href="https://x.com/boxcardavid/status/2076729724873961645" target="_blank" rel="noopener">@boxcardavid sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/media/HMoNgAwWYAEmsJy.jpg"><source src="https://video-s.twimg.com/amplify_video/2074483828219908099/vid/avc1/1280x720/NYBJzYxCn33PZ4Z7.mp4?tag=14" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Boston Dynamics</span><span class="badge badge-soft">Événement</span></div>
+    <h3>Atlas fait le show à la Coupe du Monde FIFA 2026</h3>
+    <p>Boston Dynamics a amené Atlas au bord de la pelouse du stade NY/NJ devant des dizaines de milliers de spectateurs. L&#x27;humanoïde poursuit sa tournée grand public — la robotique s&#x27;installe dans la culture populaire.</p>
+    <div class="card-foot"><span class="metrics">❤️ 1,4 k · 👁 118,7 k</span><a class="src" href="https://x.com/BostonDynamics/status/2074485444524327297" target="_blank" rel="noopener">@BostonDynamics sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/media/HM4axuzWEAAmJGl.jpg"><source src="https://video-s.twimg.com/amplify_video/2075625626761895936/vid/avc1/1280x720/qTy254RcbH8L4Cv6.mp4?tag=14" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Boston Dynamics</span><span class="badge badge-soft">Fun</span></div>
+    <h3>« Viking Row » : la flotte de robots rame au QG de Boston Dynamics</h3>
+    <p>Fièvre de Coupe du Monde oblige, Boston Dynamics met en scène ses robots dans un aviron viking synchronisé. Au-delà du fun, une démonstration de coordination multi-robots impressionnante.</p>
+    <div class="card-foot"><span class="metrics">❤️ 4,1 k · 👁 381,5 k</span><a class="src" href="https://x.com/BostonDynamics/status/2075625943012368443" target="_blank" rel="noopener">@BostonDynamics sur X →</a></div>
+  </div>
+</article></div></section><section id="recherche" class="cat"><h2>🧠 Recherche &amp; IA embarquée</h2><p class="cat-intro">Modèles de fondation, percées et labos.</p><div class="grid"><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2074853105745686528/img/Dnl5t-N13NSdRDU7.jpg"><source src="https://video-s.twimg.com/amplify_video/2074853105745686528/vid/avc1/1280x720/g3Q0YrphZ5_nGgaw.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Mistral AI</span><span class="badge badge-soft">Modèle</span></div>
+    <h3>Mistral annonce Robostral Navigate, son premier modèle de navigation incarnée</h3>
+    <p>Mistral AI entre dans la robotique avec Robostral Navigate, un modèle 8B de navigation qui guide des robots dans des environnements réels. Le français rejoint la course aux modèles de fondation pour la robotique, jusque-là dominée par Physical Intelligence, Google DeepMind et NVIDIA.</p>
+    <div class="card-foot"><span class="metrics">❤️ 2,6 k · 👁 263,8 k</span><a class="src" href="https://x.com/MistralAI/status/2074856309438980145" target="_blank" rel="noopener">@MistralAI sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075216223382720512/img/iLjdso0L48KCRR20.jpg"><source src="https://video-s.twimg.com/amplify_video/2075216223382720512/vid/avc1/1082x614/6qLlOryn07MVOwWV.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge badge-soft">Percée</span></div>
+    <h3>Première chirurgie réalisée par un robot humanoïde</h3>
+    <p>Percée préclinique : un humanoïde a réalisé une intervention chirurgicale pour la première fois, en autonomie supervisée. Au-delà du symbole, la démonstration valide la précision atteinte par les mains robotiques de dernière génération.</p>
+    <div class="card-foot"><span class="metrics">❤️ 607 · 👁 106 k</span><a class="src" href="https://x.com/BrianRoemmele/status/2075216286188245271" target="_blank" rel="noopener">@BrianRoemmele sur X →</a></div>
+  </div>
+</article></div></section><section id="industrie" class="cat"><h2>🏭 Industrie &amp; déploiements</h2><p class="cat-intro">Les robots au travail, en conditions réelles.</p><div class="grid"><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075628503869853696/img/rZs4lOqwjfp0gHl_.jpg"><source src="https://video-s.twimg.com/amplify_video/2075628503869853696/vid/avc1/576x720/NlmMAY6MwWhIdWeZ.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Persona AI</span><span class="badge badge-soft">Déploiement</span></div>
+    <h3>Un humanoïde soudeur déployé dans une usine réelle à Houston</h3>
+    <p>Persona AI a déployé son humanoïde dans une installation de soudure à Houston, où il a exécuté des soudures réelles. Après la logistique, le soudage industriel — pénurie de main-d&#x27;œuvre oblige — devient un des premiers vrais métiers des humanoïdes.</p>
+    <div class="card-foot"><span class="metrics">❤️ 773 · 👁 59,7 k</span><a class="src" href="https://x.com/lukas_m_ziegler/status/2075628957232169107" target="_blank" rel="noopener">@lukas_m_ziegler sur X →</a></div>
+  </div>
+</article><article class="card">
+  <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/media/HMtU_wZWgAEUgYC.jpg"><source src="https://video-s.twimg.com/amplify_video/2074845235364958208/vid/avc1/1280x720/i5tJFDx55BWsGsqG.mp4?tag=14" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Boston Dynamics</span><span class="badge badge-soft">Déploiement</span></div>
+    <h3>Spot arrive chez Coca-Cola en Écosse</h3>
+    <p>Le quadrupède Spot rejoint l&#x27;usine Coca-Cola Europacific Partners d&#x27;East Kilbride pour appuyer les équipes de maintenance et de fiabilité : inspections automatisées et détection précoce des pannes.</p>
+    <div class="card-foot"><span class="metrics">❤️ 236 · 👁 30,4 k</span><a class="src" href="https://x.com/BostonDynamics/status/2074845530857824263" target="_blank" rel="noopener">@BostonDynamics sur X →</a></div>
+  </div>
+</article><article class="card">
+  
+  <div class="card-body">
+    <div class="card-badges"><span class="badge">Yaskawa</span><span class="badge badge-soft">Automatisation</span></div>
+    <h3>Chez Yaskawa, des robots IA produisent… des robots IA</h3>
+    <p>Nikkei rapporte que Yaskawa fait produire ses robots dotés d&#x27;IA par des robots dotés d&#x27;IA, capables d&#x27;apprendre de leurs erreurs de vissage et de se corriger seuls. L&#x27;usine auto-réplicante n&#x27;est plus un concept.</p>
+    <div class="card-foot"><span class="metrics">❤️ 2,2 k · 👁 416,8 k</span><a class="src" href="https://x.com/nikkei/status/2075005065207652669" target="_blank" rel="noopener">@nikkei sur X →</a></div>
+  </div>
+</article></div></section>
+</main>
+<footer><div class="wrap">Généré automatiquement chaque semaine · données X (Twitter) · <a href="https://veille-robotique.comptoiria.com">veille-robotique.comptoiria.com</a></div></footer>
+</body>
+</html>
