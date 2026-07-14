@@ -49,6 +49,23 @@ mapping :
   chute courte. ≤ 250 caractères hors lien, pas de hashtags. Il sera créé en
   DRAFT Late pour validation par Nico (jamais publié directement).
 - **Édito** : 2-3 phrases qui résument la tendance de la semaine.
+- **Champs newsletter (RÈGLES ÉDITORIALES DE NICO — impératives)** :
+  - `"newsletter_title"` : le titre du post Substack. **Descriptif de l'actualité
+    ET impactant** — il raconte LA grande histoire de la semaine. JAMAIS un titre
+    générique type « Veille du 14 juillet ». Exemple validé : « La semaine où les
+    robots ont appris à se servir de leurs mains ».
+  - `"newsletter_subtitle"` : 1 phrase qui enchaîne les 2-3 faits majeurs.
+  - `"newsletter_intro"` : **les 5 premières lignes — c'est LE gros effort de
+    l'édition.** C'est ce qui décide de l'ouverture et de la lecture. Une ligne
+    d'accroche narrative, puis les faits les plus forts avec leurs chiffres, et
+    une ligne de lancement. Une ligne = un paragraphe. Pas de blabla.
+  - Dans la newsletter, chaque rubrique contient **2-3 news MAXIMUM** (l'ordre des
+    items dans le JSON = priorité, le script coupe à 3). Une rubrique sans news
+    forte cette semaine est **omise** — ne jamais remplir pour remplir.
+  - **Fraîcheur stricte** : chaque news doit dater de la semaine écoulée. Vérifie
+    le champ `date` de chaque item retenu ; en cas de doute (annonce ancienne qui
+    rebuzze), écarte-la. Les scripts ont aussi un garde-fou, mais la vigilance
+    éditoriale prime.
 
 ### 2 bis. Archiver les news dans Supabase
 

@@ -154,7 +154,8 @@ def main():
         kept = 0
         for it in items:
             n = normalize(it)
-            if n and n["id"] not in seen:
+            # garde-fou fraîcheur : on rejette tout tweet antérieur à la fenêtre
+            if n and n["id"] not in seen and (not n["date"] or n["date"] >= since):
                 seen.add(n["id"])
                 tweets.append(n)
                 kept += 1

@@ -14,11 +14,13 @@ import json
 import os
 import sys
 import urllib.request
+from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PUB = "https://nicoguyon.substack.com"
 PAGE_URL = "https://veille-robotique.comptoiria.com"
+MAX_PER_RUBRIQUE = 3  # règle éditoriale Nico : 2-3 news max par rubrique
 
 
 def load_key(name):
@@ -33,10 +35,10 @@ def load_key(name):
     return None
 
 
-def api(path, sid, payload=None):
+def api(path, sid, payload=None, method=None):
     req = urllib.request.Request(f"{PUB}{path}",
                                  data=json.dumps(payload).encode() if payload else None,
-                                 method="POST" if payload else "GET",
+                                 method=method or ("POST" if payload else "GET"),
                                  headers={"Cookie": f"substack.sid={sid}",
                                           "Content-Type": "application/json",
                                           "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"})
@@ -86,11 +88,28 @@ def image_node(cdn_url):
 
 # --- Construction du post ----------------------------------------------------
 
+def fresh_only(items, edition_date):
+    """Garde-fou fraîcheur : uniquement les news datées des 8 derniers jours."""
+    try:
+        limit = datetime.strptime(edition_date, "%Y-%m-%d") - timedelta(days=8)
+    except (ValueError, TypeError):
+        return items
+    out = []
+    for it in items:
+        d = it.get("date")
+        try:
+            if d and datetime.strptime(d, "%Y-%m-%d") < limit:
+                continue
+        except ValueError:
+            pass
+        out.append(it)
+    return out
+
+
 def build_doc(data, sid, with_images=True):
-    content = [para(text(data.get("edito", "")))]
-    content.append(para(
-        text("🎬 Toutes les news de la semaine, avec les démos vidéo intégrées : "),
-        text(PAGE_URL.replace("https://", ""), href=PAGE_URL)))
+    # Accroche : 5 premières lignes travaillées (newsletter_intro), fallback édito
+    intro = (data.get("newsletter_intro") or data.get("edito", "")).strip()
+    content = [para(text(line.strip())) for line in intro.split("\n") if line.strip()]
 
     if with_images:
         feats = [i for c in data.get("categories", []) for i in c.get("items", [])
@@ -101,8 +120,11 @@ def build_doc(data, sid, with_images=True):
                 content.append(image_node(cdn))
 
     for cat in data.get("categories", []):
+        items = fresh_only(cat.get("items", []), data.get("date"))[:MAX_PER_RUBRIQUE]
+        if not items:  # une rubrique sans news est simplement omise
+            continue
         content.append(heading(f'{cat.get("emoji", "")} {cat["title"]}'))
-        for it in cat.get("items", []):
+        for it in items:
             head = [text(it["title"], bold=True)]
             if it.get("company"):
                 head.append(text(f'  ·  {it["company"]}'))
@@ -112,8 +134,7 @@ def build_doc(data, sid, with_images=True):
                 text("Voir sur X →", href=it.get("url", PAGE_URL))))
 
     content.append(para(
-        text("Veille générée chaque semaine par l'agent robotique du Comptoir IA. "
-             "L'édition complète, avec les vidéos : "),
+        text("🎬 L'édition complète — toutes les news et les démos vidéo : "),
         text(PAGE_URL.replace("https://", ""), href=PAGE_URL)))
     return {"type": "doc", "content": content}
 
@@ -121,6 +142,8 @@ def build_doc(data, sid, with_images=True):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--update-draft", type=int, metavar="ID",
+                    help="met à jour un draft existant au lieu d'en créer un nouveau")
     args = ap.parse_args()
 
     sid = load_key("SUBSTACK_SID")
@@ -130,8 +153,9 @@ def main():
         return
 
     data = json.loads((ROOT / "data" / "latest.json").read_text())
-    title = f'🤖 Veille Robotique — {data.get("week_label", "")}'
-    subtitle = (data.get("edito", "").split(". ")[0] + ".")[:140]
+    # Titre : descriptif de l'actu et impactant (rédigé par l'agent), jamais « Veille du … »
+    title = data.get("newsletter_title") or f'🤖 Veille Robotique — {data.get("week_label", "")}'
+    subtitle = data.get("newsletter_subtitle") or (data.get("edito", "").split(". ")[0] + ".")[:140]
     doc = build_doc(data, sid, with_images=not args.dry_run)
 
     if args.dry_run:
@@ -142,16 +166,20 @@ def main():
     if not uid:
         sys.exit("Impossible de récupérer user_id (cookie expiré ?)")
 
-    draft = api("/api/v1/drafts", sid, {
+    payload = {
         "draft_title": title,
         "draft_subtitle": subtitle,
         "draft_body": json.dumps(doc),
         "draft_bylines": [{"id": uid, "is_guest": False}],
         "audience": "everyone",
         "type": "newsletter",
-    })
-    did = draft.get("id")
-    print(f"✓ Draft Substack créé : {PUB}/publish/post/{did} (à relire puis Publier)")
+    }
+    if args.update_draft:
+        api(f"/api/v1/drafts/{args.update_draft}", sid, payload, method="PUT")
+        print(f"✓ Draft Substack mis à jour : {PUB}/publish/post/{args.update_draft}")
+    else:
+        draft = api("/api/v1/drafts", sid, payload)
+        print(f"✓ Draft Substack créé : {PUB}/publish/post/{draft.get('id')} (à relire puis Publier)")
 
 
 if __name__ == "__main__":
