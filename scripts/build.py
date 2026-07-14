@@ -87,7 +87,11 @@ def top10_html():
         h = (b.get("image_height_m") or b["height_m"]) * scale
         trend = {"↑": "▲", "↓": "▼"}.get(b.get("trend"), "")
         trend_html = f'<span class="trend">{trend}</span>' if trend else ""
-        figures += f'''<figure class="bot" title="{esc(b.get("fact"))} — {esc(b.get("status"))}">
+        payload = esc(json.dumps({k: b.get(k) for k in
+                                  ("rank", "name", "company", "score", "scores",
+                                   "status", "fact", "height_m", "trend")},
+                                 ensure_ascii=False))
+        figures += f'''<figure class="bot" data-bot="{payload}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#{b["rank"]}</span>
       <img src="/robots/{b["slug"]}.png" alt="{esc(b["name"])}" style="height:{h:.0f}px" loading="lazy">
       <figcaption>
@@ -100,7 +104,8 @@ def top10_html():
   <h2>🏆 Le Top 10 des humanoïdes</h2>
   <p class="cat-intro">Les robots à l'échelle réelle, classés par notre score composite — mis à jour chaque semaine selon les news. {esc(r.get("updated", ""))}.</p>
   <div class="lineup-wrap"><div class="lineup">{figures}</div></div>
-  <p class="methodo">{esc(r.get("methodology", ""))} Survolez un robot pour son fait marquant.</p>
+  <div id="botpanel" class="botpanel" hidden></div>
+  <p class="methodo">{esc(r.get("methodology", ""))} <b>Cliquez sur un robot</b> pour déplier ses notes par critère.</p>
 </section>'''
     nav_entry = '<a href="#top10">🏆 Top 10</a>'
     return section, nav_entry
@@ -191,6 +196,22 @@ h2{{font-size:1.55rem;margin-bottom:6px}}
 .bot.human svg{{display:block;opacity:.75}}
 .bot.human .bot-name{{color:var(--muted);font-weight:500}}
 .methodo{{margin-top:14px;font-size:.8rem;color:var(--muted);max-width:760px}}
+.bot[data-bot]{{cursor:pointer;transition:transform .15s}}
+.bot[data-bot]:hover{{transform:translateY(-4px)}}
+.bot.active .bot-name{{color:var(--accent)}}
+.botpanel{{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;max-width:560px}}
+.bp-head{{display:flex;align-items:center;gap:12px;margin-bottom:14px}}
+.bp-head h3{{font-size:1.15rem}}
+.bp-head h3 small{{color:var(--muted);font-weight:500;font-size:.85rem}}
+.bp-score{{margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:var(--accent)}}
+.bp-score small{{font-size:.85rem;color:var(--muted)}}
+.crit{{display:flex;align-items:center;gap:12px;padding:5px 0;font-size:.88rem}}
+.crit-name{{flex:0 0 130px;color:#3E3931}}
+.crit-track{{flex:1;height:9px;background:var(--soft, #F1EDE5);border-radius:99px;overflow:hidden;background:#F1EDE5}}
+.crit-bar{{display:block;height:100%;background:var(--accent);border-radius:99px}}
+.crit b{{flex:0 0 30px;text-align:right;font-size:.85rem}}
+.bp-fact{{margin-top:12px;font-size:.86rem;color:#55504A}}
+.bp-fact em{{color:var(--muted)}}
 footer{{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}}
 footer a{{color:var(--accent)}}
 @media(max-width:640px){{.grid{{grid-template-columns:1fr}}section{{padding:30px 0 4px}}}}
@@ -211,6 +232,29 @@ footer a{{color:var(--accent)}}
 {sections}
 </main>
 <footer><div class="wrap">Généré automatiquement chaque semaine · données X (Twitter) · <a href="https://veille-robotique.comptoiria.com">veille-robotique.comptoiria.com</a></div></footer>
+<script>
+(function(){{
+  var panel=document.getElementById('botpanel');
+  if(!panel)return;
+  var CRITS={{locomotion:'Locomotion',manipulation:'Manipulation',ia:'IA embarquée',industrialisation:'Industrialisation',momentum:'Momentum'}};
+  document.querySelectorAll('.bot[data-bot]').forEach(function(el){{
+    el.addEventListener('click',function(){{
+      var b=JSON.parse(el.dataset.bot);
+      document.querySelectorAll('.bot.active').forEach(function(a){{a.classList.remove('active')}});
+      el.classList.add('active');
+      var rows='';
+      Object.keys(CRITS).forEach(function(k){{
+        var v=(b.scores||{{}})[k];
+        if(v==null)return;
+        rows+='<div class="crit"><span class="crit-name">'+CRITS[k]+'</span><span class="crit-track"><span class="crit-bar" style="width:'+(v*10)+'%"></span></span><b>'+String(v).replace('.',',')+'</b></div>';
+      }});
+      panel.innerHTML='<div class="bp-head"><span class="badge">#'+b.rank+'</span><h3>'+b.name+' <small>'+(b.company||'')+'</small></h3><span class="bp-score">'+String(b.score).replace('.',',')+'<small>/10</small></span></div>'+rows+'<p class="bp-fact">'+(b.fact||'')+' <em>'+(b.status||'')+'</em></p>';
+      panel.hidden=false;
+      panel.scrollIntoView({{behavior:'smooth',block:'nearest'}});
+    }});
+  }});
+}})();
+</script>
 </body>
 </html>'''
 

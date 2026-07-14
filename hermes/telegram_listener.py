@@ -76,8 +76,13 @@ def handle(action, lid):
 
 
 def main():
-    if not (TOKEN and LATE):
-        raise SystemExit("TELEGRAM_BOT_TOKEN ou LATE_API_KEY manquant")
+    global TOKEN, CHAT, LATE
+    while not (TOKEN and LATE):
+        print("TELEGRAM_BOT_TOKEN ou LATE_API_KEY manquant — nouvelle tentative dans 5 min "
+              "(la sync des clés tourne toutes les 15 min).")
+        time.sleep(300)
+        TOKEN, CHAT, LATE = (load_key("TELEGRAM_BOT_TOKEN"),
+                             str(load_key("TELEGRAM_CHAT_ID") or ""), load_key("LATE_API_KEY"))
     offset = 0
     print("Listener Telegram démarré.")
     while True:

@@ -57,6 +57,22 @@ h2{font-size:1.55rem;margin-bottom:6px}
 .bot.human svg{display:block;opacity:.75}
 .bot.human .bot-name{color:var(--muted);font-weight:500}
 .methodo{margin-top:14px;font-size:.8rem;color:var(--muted);max-width:760px}
+.bot[data-bot]{cursor:pointer;transition:transform .15s}
+.bot[data-bot]:hover{transform:translateY(-4px)}
+.bot.active .bot-name{color:var(--accent)}
+.botpanel{margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;max-width:560px}
+.bp-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.bp-head h3{font-size:1.15rem}
+.bp-head h3 small{color:var(--muted);font-weight:500;font-size:.85rem}
+.bp-score{margin-left:auto;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:var(--accent)}
+.bp-score small{font-size:.85rem;color:var(--muted)}
+.crit{display:flex;align-items:center;gap:12px;padding:5px 0;font-size:.88rem}
+.crit-name{flex:0 0 130px;color:#3E3931}
+.crit-track{flex:1;height:9px;background:var(--soft, #F1EDE5);border-radius:99px;overflow:hidden;background:#F1EDE5}
+.crit-bar{display:block;height:100%;background:var(--accent);border-radius:99px}
+.crit b{flex:0 0 30px;text-align:right;font-size:.85rem}
+.bp-fact{margin-top:12px;font-size:.86rem;color:#55504A}
+.bp-fact em{color:var(--muted)}
 footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a{color:var(--accent)}
 @media(max-width:640px){.grid{grid-template-columns:1fr}section{padding:30px 0 4px}}
@@ -106,7 +122,7 @@ footer a{color:var(--accent)}
         <path d="M30 28 C14 28 12 46 12 62 L16 108 L20 108 L20 172 L27 172 L28 110 L32 110 L33 172 L40 172 L40 108 L44 108 L48 62 C48 46 46 28 30 28 Z" fill="#D8D2C6"/>
       </svg>
       <figcaption><span class="bot-name">Humain</span><span class="bot-h">1,75 m</span></figcaption>
-    </figure><figure class="bot" title="Court à 2 m/s piloté par Helix ; usine BotQ dimensionnée pour 12 000 unités/an. — Pilotes commerciaux">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 1, &quot;name&quot;: &quot;Figure 03&quot;, &quot;company&quot;: &quot;Figure&quot;, &quot;score&quot;: 9.1, &quot;scores&quot;: {&quot;locomotion&quot;: 9.0, &quot;manipulation&quot;: 9.0, &quot;ia&quot;: 9.5, &quot;industrialisation&quot;: 8.5, &quot;momentum&quot;: 9.5}, &quot;status&quot;: &quot;Pilotes commerciaux&quot;, &quot;fact&quot;: &quot;Court à 2 m/s piloté par Helix ; usine BotQ dimensionnée pour 12 000 unités/an.&quot;, &quot;height_m&quot;: 1.68, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#1</span>
       <img src="/robots/figure-03.png" alt="Figure 03" style="height:247px" loading="lazy">
       <figcaption>
@@ -114,7 +130,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Figure 🇺🇸</span>
         <span class="bot-h">1,68 m · <b>9,1</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Main V3 quasi humaine ; production de masse annoncée imminente (objectif 1 000/mois). — Pré-production">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 2, &quot;name&quot;: &quot;Optimus V3&quot;, &quot;company&quot;: &quot;Tesla&quot;, &quot;score&quot;: 8.9, &quot;scores&quot;: {&quot;locomotion&quot;: 8.5, &quot;manipulation&quot;: 9.5, &quot;ia&quot;: 8.5, &quot;industrialisation&quot;: 9.0, &quot;momentum&quot;: 9.0}, &quot;status&quot;: &quot;Pré-production&quot;, &quot;fact&quot;: &quot;Main V3 quasi humaine ; production de masse annoncée imminente (objectif 1 000/mois).&quot;, &quot;height_m&quot;: 1.73, &quot;trend&quot;: &quot;↑&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#2</span>
       <img src="/robots/optimus.png" alt="Optimus V3" style="height:329px" loading="lazy">
       <figcaption>
@@ -122,7 +138,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Tesla 🇺🇸</span>
         <span class="bot-h">1,73 m · <b>8,9</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Mains à tendons 25 DoF, IP68 ; premier humanoïde pensé pour la maison. — Précommandes grand public">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 3, &quot;name&quot;: &quot;NEO&quot;, &quot;company&quot;: &quot;1X&quot;, &quot;score&quot;: 8.7, &quot;scores&quot;: {&quot;locomotion&quot;: 8.0, &quot;manipulation&quot;: 9.5, &quot;ia&quot;: 8.5, &quot;industrialisation&quot;: 8.0, &quot;momentum&quot;: 9.5}, &quot;status&quot;: &quot;Précommandes grand public&quot;, &quot;fact&quot;: &quot;Mains à tendons 25 DoF, IP68 ; premier humanoïde pensé pour la maison.&quot;, &quot;height_m&quot;: 1.65, &quot;trend&quot;: &quot;↑&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#3</span>
       <img src="/robots/neo.png" alt="NEO" style="height:314px" loading="lazy">
       <figcaption>
@@ -130,7 +146,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">1X 🇳🇴</span>
         <span class="bot-h">1,65 m · <b>8,7</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Le rapport capacités/prix qui a démocratisé l&#x27;humanoïde ; écosystème dev massif. — Commercialisé (~16 k$)">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 4, &quot;name&quot;: &quot;G1&quot;, &quot;company&quot;: &quot;Unitree&quot;, &quot;score&quot;: 8.5, &quot;scores&quot;: {&quot;locomotion&quot;: 9.5, &quot;manipulation&quot;: 7.5, &quot;ia&quot;: 7.5, &quot;industrialisation&quot;: 9.5, &quot;momentum&quot;: 8.5}, &quot;status&quot;: &quot;Commercialisé (~16 k$)&quot;, &quot;fact&quot;: &quot;Le rapport capacités/prix qui a démocratisé l&#x27;humanoïde ; écosystème dev massif.&quot;, &quot;height_m&quot;: 1.32, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#4</span>
       <img src="/robots/unitree-g1.png" alt="G1" style="height:251px" loading="lazy">
       <figcaption>
@@ -138,7 +154,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Unitree 🇨🇳</span>
         <span class="bot-h">1,32 m · <b>8,5</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="L&#x27;agilité de référence ; version électrique en déploiement dans les usines Hyundai. — Pilotes (Hyundai)">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 5, &quot;name&quot;: &quot;Atlas&quot;, &quot;company&quot;: &quot;Boston Dynamics&quot;, &quot;score&quot;: 8.4, &quot;scores&quot;: {&quot;locomotion&quot;: 9.5, &quot;manipulation&quot;: 8.5, &quot;ia&quot;: 8.0, &quot;industrialisation&quot;: 7.5, &quot;momentum&quot;: 8.5}, &quot;status&quot;: &quot;Pilotes (Hyundai)&quot;, &quot;fact&quot;: &quot;L&#x27;agilité de référence ; version électrique en déploiement dans les usines Hyundai.&quot;, &quot;height_m&quot;: 1.5, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#5</span>
       <img src="/robots/atlas.png" alt="Atlas" style="height:285px" loading="lazy">
       <figcaption>
@@ -146,7 +162,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Boston Dynamics 🇺🇸</span>
         <span class="bot-h">1,5 m · <b>8,4</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Conçu pour la logistique ; partenariat industriel avec Mercedes-Benz. — Pilotes (Mercedes, GXO)">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 6, &quot;name&quot;: &quot;Apollo&quot;, &quot;company&quot;: &quot;Apptronik&quot;, &quot;score&quot;: 8.0, &quot;scores&quot;: {&quot;locomotion&quot;: 7.5, &quot;manipulation&quot;: 8.5, &quot;ia&quot;: 7.5, &quot;industrialisation&quot;: 8.5, &quot;momentum&quot;: 8.0}, &quot;status&quot;: &quot;Pilotes (Mercedes, GXO)&quot;, &quot;fact&quot;: &quot;Conçu pour la logistique ; partenariat industriel avec Mercedes-Benz.&quot;, &quot;height_m&quot;: 1.72, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#6</span>
       <img src="/robots/apollo.png" alt="Apollo" style="height:327px" loading="lazy">
       <figcaption>
@@ -154,7 +170,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Apptronik 🇺🇸</span>
         <span class="bot-h">1,72 m · <b>8,0</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Le plus avancé en heures de travail réelles facturées en entrepôt. — En production réelle (GXO)">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 7, &quot;name&quot;: &quot;Digit&quot;, &quot;company&quot;: &quot;Agility Robotics&quot;, &quot;score&quot;: 7.9, &quot;scores&quot;: {&quot;locomotion&quot;: 8.0, &quot;manipulation&quot;: 7.5, &quot;ia&quot;: 7.5, &quot;industrialisation&quot;: 9.0, &quot;momentum&quot;: 7.5}, &quot;status&quot;: &quot;En production réelle (GXO)&quot;, &quot;fact&quot;: &quot;Le plus avancé en heures de travail réelles facturées en entrepôt.&quot;, &quot;height_m&quot;: 1.75, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#7</span>
       <img src="/robots/digit.png" alt="Digit" style="height:304px" loading="lazy">
       <figcaption>
@@ -162,7 +178,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Agility Robotics 🇺🇸</span>
         <span class="bot-h">1,75 m · <b>7,9</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Premier humanoïde capable de changer sa propre batterie en autonomie. — Usines BYD/Foxconn">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 8, &quot;name&quot;: &quot;Walker S2&quot;, &quot;company&quot;: &quot;UBTech&quot;, &quot;score&quot;: 7.8, &quot;scores&quot;: {&quot;locomotion&quot;: 7.5, &quot;manipulation&quot;: 7.5, &quot;ia&quot;: 7.0, &quot;industrialisation&quot;: 9.0, &quot;momentum&quot;: 8.0}, &quot;status&quot;: &quot;Usines BYD/Foxconn&quot;, &quot;fact&quot;: &quot;Premier humanoïde capable de changer sa propre batterie en autonomie.&quot;, &quot;height_m&quot;: 1.76, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#8</span>
       <img src="/robots/walker-s2.png" alt="Walker S2" style="height:334px" loading="lazy">
       <figcaption>
@@ -170,7 +186,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">UBTech 🇨🇳</span>
         <span class="bot-h">1,76 m · <b>7,8</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Orienté interaction humaine et santé ; design « companion ». — Commercialisé (soin, accueil)">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 9, &quot;name&quot;: &quot;GR-3&quot;, &quot;company&quot;: &quot;Fourier&quot;, &quot;score&quot;: 7.4, &quot;scores&quot;: {&quot;locomotion&quot;: 7.0, &quot;manipulation&quot;: 7.5, &quot;ia&quot;: 7.5, &quot;industrialisation&quot;: 7.5, &quot;momentum&quot;: 7.5}, &quot;status&quot;: &quot;Commercialisé (soin, accueil)&quot;, &quot;fact&quot;: &quot;Orienté interaction humaine et santé ; design « companion ».&quot;, &quot;height_m&quot;: 1.65, &quot;trend&quot;: &quot;=&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#9</span>
       <img src="/robots/gr-3.png" alt="GR-3" style="height:314px" loading="lazy">
       <figcaption>
@@ -178,7 +194,7 @@ footer a{color:var(--accent)}
         <span class="bot-co">Fourier 🇨🇳</span>
         <span class="bot-h">1,65 m · <b>7,4</b>/10</span>
       </figcaption>
-    </figure><figure class="bot" title="Anthropomorphisme poussé (colonne flexible, peau souple) ; adossé au constructeur auto. — Production visée fin 2026">
+    </figure><figure class="bot" data-bot="{&quot;rank&quot;: 10, &quot;name&quot;: &quot;Iron&quot;, &quot;company&quot;: &quot;XPeng&quot;, &quot;score&quot;: 7.3, &quot;scores&quot;: {&quot;locomotion&quot;: 7.5, &quot;manipulation&quot;: 7.0, &quot;ia&quot;: 7.0, &quot;industrialisation&quot;: 7.0, &quot;momentum&quot;: 8.0}, &quot;status&quot;: &quot;Production visée fin 2026&quot;, &quot;fact&quot;: &quot;Anthropomorphisme poussé (colonne flexible, peau souple) ; adossé au constructeur auto.&quot;, &quot;height_m&quot;: 1.78, &quot;trend&quot;: &quot;↑&quot;}" title="Cliquez pour le détail des notes">
       <span class="bot-rank">#10</span>
       <img src="/robots/iron.png" alt="Iron" style="height:338px" loading="lazy">
       <figcaption>
@@ -187,7 +203,8 @@ footer a{color:var(--accent)}
         <span class="bot-h">1,78 m · <b>7,3</b>/10</span>
       </figcaption>
     </figure></div></div>
-  <p class="methodo">Score composite sur 10 : locomotion, manipulation, IA embarquée, industrialisation, momentum. Réévalué chaque semaine par l&#x27;agent selon les news (démos vérifiées, déploiements réels, cadence de production). Survolez un robot pour son fait marquant.</p>
+  <div id="botpanel" class="botpanel" hidden></div>
+  <p class="methodo">Score composite sur 10 : locomotion, manipulation, IA embarquée, industrialisation, momentum. Réévalué chaque semaine par l&#x27;agent selon les news (démos vérifiées, déploiements réels, cadence de production). <b>Cliquez sur un robot</b> pour déplier ses notes par critère.</p>
 </section>
 <section id="constructeurs" class="cat"><h2>🤖 Constructeurs &amp; humanoïdes</h2><p class="cat-intro">Annonces produits et hardware des fabricants — la semaine des mains robotiques.</p><div class="grid"><article class="card">
   <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075155706051952640/img/WCumT-PpopPudbmf.jpg"><source src="https://video-s.twimg.com/amplify_video/2075155706051952640/vid/avc1/1280x720/G4zzbYDNRK_Juwan.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
@@ -336,5 +353,28 @@ footer a{color:var(--accent)}
 </article></div></section>
 </main>
 <footer><div class="wrap">Généré automatiquement chaque semaine · données X (Twitter) · <a href="https://veille-robotique.comptoiria.com">veille-robotique.comptoiria.com</a></div></footer>
+<script>
+(function(){
+  var panel=document.getElementById('botpanel');
+  if(!panel)return;
+  var CRITS={locomotion:'Locomotion',manipulation:'Manipulation',ia:'IA embarquée',industrialisation:'Industrialisation',momentum:'Momentum'};
+  document.querySelectorAll('.bot[data-bot]').forEach(function(el){
+    el.addEventListener('click',function(){
+      var b=JSON.parse(el.dataset.bot);
+      document.querySelectorAll('.bot.active').forEach(function(a){a.classList.remove('active')});
+      el.classList.add('active');
+      var rows='';
+      Object.keys(CRITS).forEach(function(k){
+        var v=(b.scores||{})[k];
+        if(v==null)return;
+        rows+='<div class="crit"><span class="crit-name">'+CRITS[k]+'</span><span class="crit-track"><span class="crit-bar" style="width:'+(v*10)+'%"></span></span><b>'+String(v).replace('.',',')+'</b></div>';
+      });
+      panel.innerHTML='<div class="bp-head"><span class="badge">#'+b.rank+'</span><h3>'+b.name+' <small>'+(b.company||'')+'</small></h3><span class="bp-score">'+String(b.score).replace('.',',')+'<small>/10</small></span></div>'+rows+'<p class="bp-fact">'+(b.fact||'')+' <em>'+(b.status||'')+'</em></p>';
+      panel.hidden=false;
+      panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+  });
+})();
+</script>
 </body>
 </html>
