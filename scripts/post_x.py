@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PAGE_URL = "https://veille-robotique.comptoiria.com"
 X_ACCOUNT_ID = "69a8b75bdc8cab9432b8bf60"  # @nico16184 sur Late
-OFFSETS_H = [0.33, 22, 46]  # étalement des posts (heures après le run)
+OFFSETS_H = [2, 22, 46]  # étalement (heures après le run) — 2 h de fenêtre opt-out avant le 1er
 CTA = f"\n\nLa veille robotique de la semaine 👉 {PAGE_URL}"
 
 
@@ -81,6 +81,7 @@ def main():
         return
 
     now = datetime.now(timezone.utc)
+    scheduled = []
     for item, off in zip(featured, OFFSETS_H):
         content = build_content(item)
         when = (now + timedelta(hours=off)).strftime("%Y-%m-%dT%H:%M:%S.000Z")
@@ -95,6 +96,14 @@ def main():
         post = resp.get("post") or resp
         print(f"✓ Post programmé {when} → id {post.get('_id') or post.get('id')} "
               f"(status {post.get('status')})")
+        scheduled.append({"content": content, "scheduled_utc": when,
+                          "late_id": post.get("_id") or post.get("id")})
+
+    if not args.dry_run and scheduled:
+        # consommé par send_email.py pour la section « tweets proposés » (opt-out)
+        (ROOT / "data" / "x_posts_scheduled.json").write_text(
+            json.dumps({"date": now.strftime("%Y-%m-%d"), "posts": scheduled},
+                       ensure_ascii=False, indent=1))
 
     if not args.dry_run:
         posts = late_api(f"/posts?limit={len(featured)}", key)

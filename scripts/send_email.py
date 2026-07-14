@@ -60,6 +60,40 @@ def news_block(item):
     </td></tr>'''
 
 
+def tweets_block():
+    """Section « tweets programmés » (opt-out) si post_x.py a tourné aujourd'hui."""
+    f = ROOT / "data" / "x_posts_scheduled.json"
+    if not f.exists():
+        return ""
+    from datetime import datetime, timezone
+    d = json.loads(f.read_text())
+    if d.get("date") != datetime.now(timezone.utc).strftime("%Y-%m-%d"):
+        return ""
+    try:
+        from zoneinfo import ZoneInfo
+        paris = ZoneInfo("Europe/Paris")
+    except Exception:
+        paris = None
+    rows = ""
+    for p in d.get("posts", []):
+        when = p["scheduled_utc"]
+        try:
+            dt = datetime.strptime(when, "%Y-%m-%dT%H:%M:%S.000Z").replace(tzinfo=timezone.utc)
+            label = dt.astimezone(paris).strftime("%a %d/%m %H:%M") if paris else when
+        except ValueError:
+            label = when
+        rows += f'''<tr><td style="padding:10px 0;border-bottom:1px solid #EBE7DF">
+          <div style="font-size:11px;font-weight:700;color:#FF4D00;text-transform:uppercase;letter-spacing:1px">Départ : {esc(label)} (Paris)</div>
+          <div style="font-size:13px;color:#3E3931;line-height:1.5;padding-top:4px;white-space:pre-wrap">{esc(p["content"])}</div>
+        </td></tr>'''
+    return f'''<tr><td style="padding:6px 32px 8px">
+      <div style="font-size:17px;font-weight:700;color:#16130F;padding:14px 0 2px">🐦 Tweets programmés sur @nico16184</div>
+      <div style="font-size:12px;color:#8A847B">Ils partiront automatiquement — pour modifier ou annuler :
+        <a href="https://getlate.dev" style="color:#FF4D00;font-weight:600">getlate.dev</a></div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>
+    </td></tr>'''
+
+
 def main():
     key = load_key("RESEND_API_KEY")
     if not key:
@@ -83,6 +117,7 @@ def main():
     <div style="font-size:15px;color:#3E3931;line-height:1.55">{esc(data.get("edito"))}</div>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding-top:10px">{"".join(news_block(i) for i in top)}</table>
   </td></tr>
+  {tweets_block()}
   <tr><td align="center" style="padding:26px 32px 30px">
     <a href="{PAGE_URL}" style="display:inline-block;background:#FF4D00;color:#fff;font-size:15px;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:99px">Voir la veille complète →</a>
     <div style="font-size:12px;color:#8A847B;padding-top:14px">Toutes les news par catégorie, avec les démos vidéo de la semaine</div>

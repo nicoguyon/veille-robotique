@@ -102,27 +102,41 @@ vercel --prod --yes --token "$VERCEL_TOKEN"
 `veille-robotique.comptoiria.com` — déjà configuré, suit les redeploys ;
 si le CLI vercel n'est pas installé : `npm i -g vercel`).
 
-### 5. Envoyer l'email récap
-
-```bash
-python3 scripts/send_email.py
-```
-
-(Resend → nicoguyon@gmail.com, top news + lien page.)
-
-### 5 bis. Programmer les posts X (teasing de la newsletter)
+### 5. Programmer les posts X (teasing, opt-out)
 
 ```bash
 python3 scripts/post_x.py
 ```
 
 (API Late → compte X `@nico16184`, requiert `LATE_API_KEY`. Programme un post
-par news featured, étalés sur les jours suivants : +20 min, +22 h, +46 h. Chaque
-post reprend le `x_post` rédigé à l'étape 2 et renvoie vers la newsletter.
+par news featured, étalés : **+2 h** (fenêtre de veto pour Nico), +22 h, +46 h.
+Chaque post reprend le `x_post` rédigé à l'étape 2 et renvoie vers la page.
 Vérifie dans la sortie que les posts sont bien `scheduled` ; Late renvoie
-parfois un 500 transitoire, le script retry déjà tout seul.)
+parfois un 500 transitoire, le script retry déjà tout seul. Le script écrit
+`data/x_posts_scheduled.json`, consommé par l'email.)
 
-### 6. Commit & push
+### 6. Envoyer l'email récap
+
+```bash
+python3 scripts/send_email.py
+```
+
+(Resend → nicoguyon@gmail.com : top news + lien page + **section « tweets
+programmés »** avec heures de départ, pour que Nico puisse les modifier/annuler
+sur getlate.dev avant publication. À lancer APRÈS post_x.py.)
+
+### 7. Créer le brouillon Substack
+
+```bash
+python3 scripts/publish_substack.py
+```
+
+(Crée le post hebdo en BROUILLON sur https://nicoguyon.substack.com — Nico
+relit et publie lui-même. Requiert `SUBSTACK_SID` (cookie de session) ; si la
+clé est absente, le script saute l'étape avec un warning, continue le pipeline.
+Ne JAMAIS publier automatiquement sur Substack.)
+
+### 8. Commit & push
 
 ```bash
 git add -A && git commit -m "Édition du YYYY-MM-DD" && git push
