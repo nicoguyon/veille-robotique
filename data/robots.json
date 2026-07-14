@@ -1,0 +1,17 @@
+{
+ "updated": "2026-07-14",
+ "methodology": "Score composite sur 10 : locomotion, manipulation, IA embarquée, industrialisation, momentum. Réévalué chaque semaine par l'agent selon les news (démos vérifiées, déploiements réels, cadence de production).",
+ "human_height_m": 1.75,
+ "robots": [
+  {"rank": 1, "slug": "figure-03", "name": "Figure 03", "company": "Figure", "country": "🇺🇸", "height_m": 1.68, "image_height_m": 1.3, "score": 9.1, "status": "Pilotes commerciaux", "fact": "Court à 2 m/s piloté par Helix ; usine BotQ dimensionnée pour 12 000 unités/an.", "trend": "="},
+  {"rank": 2, "slug": "optimus", "name": "Optimus V3", "company": "Tesla", "country": "🇺🇸", "height_m": 1.73, "score": 8.9, "status": "Pré-production", "fact": "Main V3 quasi humaine ; production de masse annoncée imminente (objectif 1 000/mois).", "trend": "↑"},
+  {"rank": 3, "slug": "neo", "name": "NEO", "company": "1X", "country": "🇳🇴", "height_m": 1.65, "score": 8.7, "status": "Précommandes grand public", "fact": "Mains à tendons 25 DoF, IP68 ; premier humanoïde pensé pour la maison.", "trend": "↑"},
+  {"rank": 4, "slug": "unitree-g1", "name": "G1", "company": "Unitree", "country": "🇨🇳", "height_m": 1.32, "score": 8.5, "status": "Commercialisé (~16 k$)", "fact": "Le rapport capacités/prix qui a démocratisé l'humanoïde ; écosystème dev massif.", "trend": "="},
+  {"rank": 5, "slug": "atlas", "name": "Atlas", "company": "Boston Dynamics", "country": "🇺🇸", "height_m": 1.5, "score": 8.4, "status": "Pilotes (Hyundai)", "fact": "L'agilité de référence ; version électrique en déploiement dans les usines Hyundai.", "trend": "="},
+  {"rank": 6, "slug": "apollo", "name": "Apollo", "company": "Apptronik", "country": "🇺🇸", "height_m": 1.72, "score": 8.0, "status": "Pilotes (Mercedes, GXO)", "fact": "Conçu pour la logistique ; partenariat industriel avec Mercedes-Benz.", "trend": "="},
+  {"rank": 7, "slug": "digit", "name": "Digit", "company": "Agility Robotics", "country": "🇺🇸", "height_m": 1.75, "image_height_m": 1.6, "score": 7.9, "status": "En production réelle (GXO)", "fact": "Le plus avancé en heures de travail réelles facturées en entrepôt.", "trend": "="},
+  {"rank": 8, "slug": "walker-s2", "name": "Walker S2", "company": "UBTech", "country": "🇨🇳", "height_m": 1.76, "score": 7.8, "status": "Usines BYD/Foxconn", "fact": "Premier humanoïde capable de changer sa propre batterie en autonomie.", "trend": "="},
+  {"rank": 9, "slug": "gr-3", "name": "GR-3", "company": "Fourier", "country": "🇨🇳", "height_m": 1.65, "score": 7.4, "status": "Commercialisé (soin, accueil)", "fact": "Orienté interaction humaine et santé ; design « companion ».", "trend": "="},
+  {"rank": 10, "slug": "iron", "name": "Iron", "company": "XPeng", "country": "🇨🇳", "height_m": 1.78, "score": 7.3, "status": "Production visée fin 2026", "fact": "Anthropomorphisme poussé (colonne flexible, peau souple) ; adossé au constructeur auto.", "trend": "↑"}
+ ]
+}

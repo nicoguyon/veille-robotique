@@ -69,11 +69,49 @@ def card_html(item, big=False):
 </article>'''
 
 
+def top10_html():
+    f = DATA.parent / "robots.json"
+    if not f.exists():
+        return "", ""
+    r = json.loads(f.read_text())
+    scale = 190  # px par mètre
+    human_h = r.get("human_height_m", 1.75)
+    figures = f'''<figure class="bot human">
+      <svg viewBox="0 0 60 175" style="height:{human_h * scale:.0f}px" aria-label="Humain 1,75 m">
+        <circle cx="30" cy="14" r="12" fill="#D8D2C6"/>
+        <path d="M30 28 C14 28 12 46 12 62 L16 108 L20 108 L20 172 L27 172 L28 110 L32 110 L33 172 L40 172 L40 108 L44 108 L48 62 C48 46 46 28 30 28 Z" fill="#D8D2C6"/>
+      </svg>
+      <figcaption><span class="bot-name">Humain</span><span class="bot-h">1,75 m</span></figcaption>
+    </figure>'''
+    for b in r["robots"]:
+        h = (b.get("image_height_m") or b["height_m"]) * scale
+        trend = {"↑": "▲", "↓": "▼"}.get(b.get("trend"), "")
+        trend_html = f'<span class="trend">{trend}</span>' if trend else ""
+        figures += f'''<figure class="bot" title="{esc(b.get("fact"))} — {esc(b.get("status"))}">
+      <span class="bot-rank">#{b["rank"]}</span>
+      <img src="/robots/{b["slug"]}.png" alt="{esc(b["name"])}" style="height:{h:.0f}px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">{esc(b["name"])} {trend_html}</span>
+        <span class="bot-co">{esc(b["company"])} {b.get("country", "")}</span>
+        <span class="bot-h">{str(b["height_m"]).replace(".", ",")} m · <b>{str(b["score"]).replace(".", ",")}</b>/10</span>
+      </figcaption>
+    </figure>'''
+    section = f'''<section id="top10" class="cat">
+  <h2>🏆 Le Top 10 des humanoïdes</h2>
+  <p class="cat-intro">Les robots à l'échelle réelle, classés par notre score composite — mis à jour chaque semaine selon les news. {esc(r.get("updated", ""))}.</p>
+  <div class="lineup-wrap"><div class="lineup">{figures}</div></div>
+  <p class="methodo">{esc(r.get("methodology", ""))} Survolez un robot pour son fait marquant.</p>
+</section>'''
+    nav_entry = '<a href="#top10">🏆 Top 10</a>'
+    return section, nav_entry
+
+
 def build(data):
     cats = data.get("categories", [])
     featured = [i for c in cats for i in c.get("items", []) if i.get("featured")][:3]
 
-    nav = "".join(f'<a href="#{esc(c["id"])}">{esc(c.get("emoji", ""))} {esc(c["title"])}</a>' for c in cats)
+    top10, top10_nav = top10_html()
+    nav = top10_nav + "".join(f'<a href="#{esc(c["id"])}">{esc(c.get("emoji", ""))} {esc(c["title"])}</a>' for c in cats)
 
     feat_html = ""
     if featured:
@@ -100,6 +138,7 @@ def build(data):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
 <title>Veille Robotique — {esc(data.get("week_label"))}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -138,6 +177,20 @@ h2{{font-size:1.55rem;margin-bottom:6px}}
 .card p{{font-size:.92rem;color:#3E3931}}
 .card-foot{{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:8px;font-size:.82rem;color:var(--muted)}}
 .src{{color:var(--accent);text-decoration:none;font-weight:600}}
+.lineup-wrap{{overflow-x:auto;margin-top:22px;padding-bottom:6px}}
+.lineup{{display:flex;align-items:flex-end;gap:26px;min-width:max-content;padding:16px 8px 0;border-bottom:3px solid var(--ink)}}
+.bot{{display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}}
+.bot img{{width:auto;display:block;filter:drop-shadow(0 12px 16px rgba(22,19,15,.18))}}
+.bot-rank{{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.78rem;padding:2px 9px;border-radius:99px;z-index:2}}
+.bot figcaption{{display:flex;flex-direction:column;padding:10px 0 2px;font-size:.78rem;line-height:1.35;min-width:86px}}
+.bot-name{{font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:.88rem}}
+.bot-co{{color:var(--muted)}}
+.bot-h{{color:var(--muted)}}
+.bot-h b{{color:var(--accent)}}
+.trend{{color:var(--accent);font-size:.7rem}}
+.bot.human svg{{display:block;opacity:.75}}
+.bot.human .bot-name{{color:var(--muted);font-weight:500}}
+.methodo{{margin-top:14px;font-size:.8rem;color:var(--muted);max-width:760px}}
 footer{{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}}
 footer a{{color:var(--accent)}}
 @media(max-width:640px){{.grid{{grid-template-columns:1fr}}section{{padding:30px 0 4px}}}}
@@ -154,6 +207,7 @@ footer a{{color:var(--accent)}}
 <nav class="catnav"><div class="wrap">{nav}</div></nav>
 <main class="wrap">
 {feat_html}
+{top10}
 {sections}
 </main>
 <footer><div class="wrap">Généré automatiquement chaque semaine · données X (Twitter) · <a href="https://veille-robotique.comptoiria.com">veille-robotique.comptoiria.com</a></div></footer>

@@ -44,7 +44,46 @@ mapping :
 - **Pour chaque news featured, rédige aussi `"x_post"`** : le texte du post X
   (≤ 230 caractères, français, factuel avec les chiffres marquants, 1 emoji en
   tête, SANS lien ni hashtags — `scripts/post_x.py` ajoute le lien newsletter).
+- **Rédige `"x_viral"`** (champ racine du JSON) : LE post X « stylé viral » de la
+  semaine — hook percutant en 1re ligne, puis 3-4 lignes « → fait + chiffre »,
+  chute courte. ≤ 250 caractères hors lien, pas de hashtags. Il sera créé en
+  DRAFT Late pour validation par Nico (jamais publié directement).
 - **Édito** : 2-3 phrases qui résument la tendance de la semaine.
+
+### 2 bis. Archiver les news dans Supabase
+
+```bash
+python3 scripts/store_news.py
+```
+
+(Upsert de toutes les news de l'édition dans la table `robotics_news` —
+historique permanent. Requiert `SUPABASE_VEILLE_SERVICE_KEY` ; si absente, le
+script saute l'étape avec un warning.)
+
+### 2 ter. Entretenir le Top 10 des humanoïdes (`data/robots.json`)
+
+La page affiche un classement permanent des 10 meilleurs humanoïdes du marché,
+détourés et à l'échelle (`public/robots/*.png`). **Chaque semaine, réévalue ce
+classement en fonction des news** :
+
+- Ajuste les `score` (composite : locomotion, manipulation, IA embarquée,
+  industrialisation, momentum) quand une news le justifie (démo majeure,
+  déploiement réel, jalon de production). Mets `trend` à `↑`/`↓`/`=` selon le
+  mouvement de la semaine, et actualise `fact` (le fait marquant) et `status`.
+- Re-trie `rank` par score décroissant et mets `updated` à la date du jour.
+- Si un nouveau robot mérite d'entrer dans le Top 10 : ajoute son entrée
+  (nom, hauteur réelle en m) et crée son image détourée → trouve une photo
+  full-body officielle, détoure-la via fal.ai birefnet
+  (`POST https://fal.run/fal-ai/birefnet/v2`, header `Authorization: Key $FAL_KEY`,
+  body `{"image_url": "data:image/jpeg;base64,…"}`), trim la transparence (PIL
+  `getbbox`), enregistre dans `public/robots/<slug>.png`. Retire le sortant.
+- `image_height_m` (optionnel) = hauteur réelle représentée par le PNG si la
+  pose n'est pas parfaitement debout (ex. figure-03 fléchi) — c'est ce champ
+  qui pilote l'échelle d'affichage.
+- ⚠️ Améliorations d'assets en attente : remplacer `figure-03.png` (pose
+  fléchie) et `optimus.png` (micro-watermark sur le torse) dès qu'une meilleure
+  photo officielle full-body existe.
+- Ne change JAMAIS un score sans justification dans les news de la semaine.
 
 Format exact de `data/latest.json` (consommé par `scripts/build.py`) :
 

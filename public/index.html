@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
 <title>Veille Robotique — Semaine du 7 au 14 juillet 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,6 +43,20 @@ h2{font-size:1.55rem;margin-bottom:6px}
 .card p{font-size:.92rem;color:#3E3931}
 .card-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:8px;font-size:.82rem;color:var(--muted)}
 .src{color:var(--accent);text-decoration:none;font-weight:600}
+.lineup-wrap{overflow-x:auto;margin-top:22px;padding-bottom:6px}
+.lineup{display:flex;align-items:flex-end;gap:26px;min-width:max-content;padding:16px 8px 0;border-bottom:3px solid var(--ink)}
+.bot{display:flex;flex-direction:column;align-items:center;position:relative;text-align:center}
+.bot img{width:auto;display:block;filter:drop-shadow(0 12px 16px rgba(22,19,15,.18))}
+.bot-rank{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.78rem;padding:2px 9px;border-radius:99px;z-index:2}
+.bot figcaption{display:flex;flex-direction:column;padding:10px 0 2px;font-size:.78rem;line-height:1.35;min-width:86px}
+.bot-name{font-weight:700;font-family:'Space Grotesk',sans-serif;font-size:.88rem}
+.bot-co{color:var(--muted)}
+.bot-h{color:var(--muted)}
+.bot-h b{color:var(--accent)}
+.trend{color:var(--accent);font-size:.7rem}
+.bot.human svg{display:block;opacity:.75}
+.bot.human .bot-name{color:var(--muted);font-weight:500}
+.methodo{margin-top:14px;font-size:.8rem;color:var(--muted);max-width:760px}
 footer{margin-top:56px;padding:28px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
 footer a{color:var(--accent)}
 @media(max-width:640px){.grid{grid-template-columns:1fr}section{padding:30px 0 4px}}
@@ -55,7 +70,7 @@ footer a{color:var(--accent)}
   <p class="edito">La semaine où les mains ont volé la vedette : 1X dévoile les mains à tendons du NEO (25 degrés de liberté, 11 millions de vues), Figure 03 se met à courir et la main d&#x27;Optimus V3 impressionne à l&#x27;approche de la production de masse. Pendant ce temps, la Chine annonce plus de 100 000 humanoïdes produits en 2026 et les capitaux affluent — de Paradigm (1,2 Md$) aux notes de Morgan Stanley et UBS.</p>
   <div class="statline">165 posts X analysés · 120 comptes suivis</div>
 </div></header>
-<nav class="catnav"><div class="wrap"><a href="#constructeurs">🤖 Constructeurs &amp; humanoïdes</a><a href="#marche">💰 Marché, levées &amp; valorisations</a><a href="#demos">🎬 Démos de la semaine</a><a href="#recherche">🧠 Recherche &amp; IA embarquée</a><a href="#industrie">🏭 Industrie &amp; déploiements</a></div></nav>
+<nav class="catnav"><div class="wrap"><a href="#top10">🏆 Top 10</a><a href="#constructeurs">🤖 Constructeurs &amp; humanoïdes</a><a href="#marche">💰 Marché, levées &amp; valorisations</a><a href="#demos">🎬 Démos de la semaine</a><a href="#recherche">🧠 Recherche &amp; IA embarquée</a><a href="#industrie">🏭 Industrie &amp; déploiements</a></div></nav>
 <main class="wrap">
 <section class="featured"><h2 class="kicker">🏆 À la une cette semaine</h2><div class="grid grid-featured"><article class="card card-big">
   <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075252791493435392/img/AI3FWkQeto8GYkBD.jpg"><source src="https://video-s.twimg.com/amplify_video/2075252791493435392/vid/avc1/3840x2160/yblzgqiFJUI5TSpw.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
@@ -82,6 +97,98 @@ footer a{color:var(--accent)}
     <div class="card-foot"><span class="metrics">❤️ 4,4 k · 👁 397,6 k</span><a class="src" href="https://x.com/MarioNawfal/status/2075495237980508313" target="_blank" rel="noopener">@MarioNawfal sur X →</a></div>
   </div>
 </article></div></section>
+<section id="top10" class="cat">
+  <h2>🏆 Le Top 10 des humanoïdes</h2>
+  <p class="cat-intro">Les robots à l'échelle réelle, classés par notre score composite — mis à jour chaque semaine selon les news. 2026-07-14.</p>
+  <div class="lineup-wrap"><div class="lineup"><figure class="bot human">
+      <svg viewBox="0 0 60 175" style="height:332px" aria-label="Humain 1,75 m">
+        <circle cx="30" cy="14" r="12" fill="#D8D2C6"/>
+        <path d="M30 28 C14 28 12 46 12 62 L16 108 L20 108 L20 172 L27 172 L28 110 L32 110 L33 172 L40 172 L40 108 L44 108 L48 62 C48 46 46 28 30 28 Z" fill="#D8D2C6"/>
+      </svg>
+      <figcaption><span class="bot-name">Humain</span><span class="bot-h">1,75 m</span></figcaption>
+    </figure><figure class="bot" title="Court à 2 m/s piloté par Helix ; usine BotQ dimensionnée pour 12 000 unités/an. — Pilotes commerciaux">
+      <span class="bot-rank">#1</span>
+      <img src="/robots/figure-03.png" alt="Figure 03" style="height:247px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Figure 03 </span>
+        <span class="bot-co">Figure 🇺🇸</span>
+        <span class="bot-h">1,68 m · <b>9,1</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Main V3 quasi humaine ; production de masse annoncée imminente (objectif 1 000/mois). — Pré-production">
+      <span class="bot-rank">#2</span>
+      <img src="/robots/optimus.png" alt="Optimus V3" style="height:329px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Optimus V3 <span class="trend">▲</span></span>
+        <span class="bot-co">Tesla 🇺🇸</span>
+        <span class="bot-h">1,73 m · <b>8,9</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Mains à tendons 25 DoF, IP68 ; premier humanoïde pensé pour la maison. — Précommandes grand public">
+      <span class="bot-rank">#3</span>
+      <img src="/robots/neo.png" alt="NEO" style="height:314px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">NEO <span class="trend">▲</span></span>
+        <span class="bot-co">1X 🇳🇴</span>
+        <span class="bot-h">1,65 m · <b>8,7</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Le rapport capacités/prix qui a démocratisé l&#x27;humanoïde ; écosystème dev massif. — Commercialisé (~16 k$)">
+      <span class="bot-rank">#4</span>
+      <img src="/robots/unitree-g1.png" alt="G1" style="height:251px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">G1 </span>
+        <span class="bot-co">Unitree 🇨🇳</span>
+        <span class="bot-h">1,32 m · <b>8,5</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="L&#x27;agilité de référence ; version électrique en déploiement dans les usines Hyundai. — Pilotes (Hyundai)">
+      <span class="bot-rank">#5</span>
+      <img src="/robots/atlas.png" alt="Atlas" style="height:285px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Atlas </span>
+        <span class="bot-co">Boston Dynamics 🇺🇸</span>
+        <span class="bot-h">1,5 m · <b>8,4</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Conçu pour la logistique ; partenariat industriel avec Mercedes-Benz. — Pilotes (Mercedes, GXO)">
+      <span class="bot-rank">#6</span>
+      <img src="/robots/apollo.png" alt="Apollo" style="height:327px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Apollo </span>
+        <span class="bot-co">Apptronik 🇺🇸</span>
+        <span class="bot-h">1,72 m · <b>8,0</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Le plus avancé en heures de travail réelles facturées en entrepôt. — En production réelle (GXO)">
+      <span class="bot-rank">#7</span>
+      <img src="/robots/digit.png" alt="Digit" style="height:304px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Digit </span>
+        <span class="bot-co">Agility Robotics 🇺🇸</span>
+        <span class="bot-h">1,75 m · <b>7,9</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Premier humanoïde capable de changer sa propre batterie en autonomie. — Usines BYD/Foxconn">
+      <span class="bot-rank">#8</span>
+      <img src="/robots/walker-s2.png" alt="Walker S2" style="height:334px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Walker S2 </span>
+        <span class="bot-co">UBTech 🇨🇳</span>
+        <span class="bot-h">1,76 m · <b>7,8</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Orienté interaction humaine et santé ; design « companion ». — Commercialisé (soin, accueil)">
+      <span class="bot-rank">#9</span>
+      <img src="/robots/gr-3.png" alt="GR-3" style="height:314px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">GR-3 </span>
+        <span class="bot-co">Fourier 🇨🇳</span>
+        <span class="bot-h">1,65 m · <b>7,4</b>/10</span>
+      </figcaption>
+    </figure><figure class="bot" title="Anthropomorphisme poussé (colonne flexible, peau souple) ; adossé au constructeur auto. — Production visée fin 2026">
+      <span class="bot-rank">#10</span>
+      <img src="/robots/iron.png" alt="Iron" style="height:338px" loading="lazy">
+      <figcaption>
+        <span class="bot-name">Iron <span class="trend">▲</span></span>
+        <span class="bot-co">XPeng 🇨🇳</span>
+        <span class="bot-h">1,78 m · <b>7,3</b>/10</span>
+      </figcaption>
+    </figure></div></div>
+  <p class="methodo">Score composite sur 10 : locomotion, manipulation, IA embarquée, industrialisation, momentum. Réévalué chaque semaine par l&#x27;agent selon les news (démos vérifiées, déploiements réels, cadence de production). Survolez un robot pour son fait marquant.</p>
+</section>
 <section id="constructeurs" class="cat"><h2>🤖 Constructeurs &amp; humanoïdes</h2><p class="cat-intro">Annonces produits et hardware des fabricants — la semaine des mains robotiques.</p><div class="grid"><article class="card">
   <div class="card-media"><video controls preload="none" playsinline poster="https://pbs.twimg.com/amplify_video_thumb/2075155706051952640/img/WCumT-PpopPudbmf.jpg"><source src="https://video-s.twimg.com/amplify_video/2075155706051952640/vid/avc1/1280x720/G4zzbYDNRK_Juwan.mp4?tag=28" type="video/mp4"></video><span class="media-badge">▶ démo vidéo</span></div>
   <div class="card-body">

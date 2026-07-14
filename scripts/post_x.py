@@ -67,6 +67,8 @@ def build_content(item):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--viral-only", action="store_true",
+                    help="ne crée que le draft viral (pas les posts news programmés)")
     args = ap.parse_args()
 
     key = load_key("LATE_API_KEY")
@@ -82,7 +84,7 @@ def main():
 
     now = datetime.now(timezone.utc)
     scheduled = []
-    for item, off in zip(featured, OFFSETS_H):
+    for item, off in zip([] if args.viral_only else featured, OFFSETS_H):
         content = build_content(item)
         when = (now + timedelta(hours=off)).strftime("%Y-%m-%dT%H:%M:%S.000Z")
         if args.dry_run:
@@ -98,6 +100,23 @@ def main():
               f"(status {post.get('status')})")
         scheduled.append({"content": content, "scheduled_utc": when,
                           "late_id": post.get("_id") or post.get("id")})
+
+    # Post viral hebdo : créé en DRAFT Late (opt-in — Nico valide/corrige sur getlate.dev)
+    viral = (data.get("x_viral") or "").strip()
+    if viral:
+        content = viral if PAGE_URL in viral else viral + f"\n{PAGE_URL}"
+        if args.dry_run:
+            print(f"--- DRAFT viral (à valider)\n{content}\n")
+        else:
+            resp = late_api("/posts", key, {
+                "content": content,
+                "platforms": [{"platform": "twitter", "accountId": X_ACCOUNT_ID}],
+            })  # sans scheduledFor → reste en draft tant que Nico ne l'a pas validé
+            post = resp.get("post") or resp
+            print(f"✓ Post viral créé en DRAFT Late → id {post.get('_id') or post.get('id')} "
+                  f"(status {post.get('status')})")
+            scheduled.append({"content": content, "scheduled_utc": None,
+                              "late_id": post.get("_id") or post.get("id"), "draft": True})
 
     if not args.dry_run and scheduled:
         # consommé par send_email.py pour la section « tweets proposés » (opt-out)

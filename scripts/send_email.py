@@ -76,6 +76,13 @@ def tweets_block():
         paris = None
     rows = ""
     for p in d.get("posts", []):
+        if p.get("draft"):
+            label = "🔥 POST VIRAL — en draft, à valider ou corriger sur getlate.dev"
+            rows += f'''<tr><td style="padding:10px 0;border-bottom:1px solid #EBE7DF">
+          <div style="font-size:11px;font-weight:700;color:#16130F;text-transform:uppercase;letter-spacing:1px">{esc(label)}</div>
+          <div style="font-size:13px;color:#3E3931;line-height:1.5;padding-top:4px;white-space:pre-wrap">{esc(p["content"])}</div>
+        </td></tr>'''
+            continue
         when = p["scheduled_utc"]
         try:
             dt = datetime.strptime(when, "%Y-%m-%dT%H:%M:%S.000Z").replace(tzinfo=timezone.utc)
