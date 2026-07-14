@@ -1,4 +1,4 @@
-Diagnostic cloud — veille-robotique
+Diagnostic cloud — veille-robotique (run 2)
 Date : 2026-07-14
 
 1) Variables d'environnement
@@ -15,19 +15,28 @@ XAI_API_KEY: ABSENTE
 Commande :
 curl -s -w '\nHTTP:%{http_code}' -X POST https://api.resend.com/emails \
   -H "Authorization: Bearer $RESEND_API_KEY" -H 'Content-Type: application/json' \
-  -d '{"from":"Veille Robotique <veille-robotique@comptoiria.com>","to":["nicoguyon@gmail.com"],"subject":"✅ Self-test 2 — agent cloud veille robotique","html":"<p>Resend OK depuis le cloud.</p>"}'
+  -d '{"from":"Veille Robotique <veille-robotique@comptoiria.com>","to":["nicoguyon@gmail.com"],"subject":"✅ Self-test 2 — agent cloud veille robotique","html":"<p>Resend OK depuis le cloud (env 2).</p>"}'
 
-Résultat : échec réseau avant même d'atteindre l'API Resend.
-- curl exit code 56 (échec de réception réseau), HTTP:000
-- Diagnostic verbeux : le proxy sortant de l'environnement (127.0.0.1:38021) répond
-  "HTTP/1.1 403 Forbidden" au CONNECT vers api.resend.com:443
-  ("gateway answered 403 to CONNECT (policy denial or upstream failure)")
-- Confirmé via GET $HTTPS_PROXY/__agentproxy/status → recentRelayFailures liste deux
-  rejets connect_rejected vers api.resend.com:443 à 12:16:52Z et 12:16:59Z.
-- Conclusion : la politique réseau de cet environnement bloque les appels sortants vers
-  api.resend.com (indépendamment du fait que RESEND_API_KEY soit absente).
+Résultat :
+{"statusCode":401,"name":"validation_error","message":"API key is invalid"}
+HTTP:401
 
-3) Environnement
+Différence notable par rapport au run 1 : la requête atteint bien l'API Resend cette
+fois (401 "API key is invalid", pas de blocage proxy/réseau). Dans le run précédent,
+le proxy sortant renvoyait 403 sur le CONNECT vers api.resend.com. Ici l'échec est
+uniquement dû à l'absence de RESEND_API_KEY (donc header Authorization invalide) —
+la connectivité réseau vers Resend n'est plus bloquée dans cet environnement.
+
+3) Connectivité sortante vers les autres APIs du pipeline
+-----------------------------------------------------------
+api.apify.com          -> 404
+api.vercel.com         -> 308
+getlate.dev            -> 301
+nicoguyon.substack.com -> 200
+(Tous joignables — un code HTTP quelconque a été renvoyé pour chacun, aucun 000 :
+pas de blocage réseau sortant vers ces domaines dans cet environnement.)
+
+4) Environnement
 -----------------
 python3 --version : Python 3.11.15
 which vercel       : vercel-absent (CLI vercel non installée sur le PATH)
@@ -36,8 +45,10 @@ Résumé
 ------
 Aucune des 6 variables d'environnement attendues (APIFY_TOKEN, VERCEL_TOKEN,
 RESEND_API_KEY, LATE_API_KEY, SUBSTACK_SID, XAI_API_KEY) n'est présente dans cet
-environnement cloud. De plus, même avec une clé Resend valide, l'appel sortant vers
-api.resend.com serait bloqué par la politique réseau du proxy de l'environnement
-(403 sur le CONNECT). La CLI vercel n'est pas installée. Le pipeline de veille ne peut
-donc pas s'exécuter correctement dans cet environnement en l'état : ni secrets
-configurés, ni accès réseau sortant vers Resend, ni CLI Vercel disponible.
+environnement cloud — inchangé par rapport au run 1. En revanche, contrairement au
+run 1, la connectivité réseau sortante vers api.resend.com n'est plus bloquée par le
+proxy (on obtient un 401 applicatif, pas un 403/000 réseau) ; api.apify.com,
+api.vercel.com, getlate.dev et nicoguyon.substack.com sont également tous joignables.
+La CLI vercel reste absente. Le pipeline de veille ne peut donc toujours pas
+s'exécuter correctement dans cet environnement : les secrets ne sont pas configurés,
+même si l'accès réseau sortant vers les APIs concernées semble désormais disponible.
