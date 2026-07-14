@@ -41,6 +41,9 @@ mapping :
 - **Rédige en français** : `title` (accroche courte factuelle), `summary`
   (2-3 phrases : le quoi, le pourquoi c'est important, les chiffres).
 - **Marque `"featured": true`** sur les 3 news majeures de la semaine.
+- **Pour chaque news featured, rédige aussi `"x_post"`** : le texte du post X
+  (≤ 230 caractères, français, factuel avec les chiffres marquants, 1 emoji en
+  tête, SANS lien ni hashtags — `scripts/post_x.py` ajoute le lien newsletter).
 - **Édito** : 2-3 phrases qui résument la tendance de la semaine.
 
 Format exact de `data/latest.json` (consommé par `scripts/build.py`) :
@@ -106,6 +109,18 @@ python3 scripts/send_email.py
 ```
 
 (Resend → nicoguyon@gmail.com, top news + lien page.)
+
+### 5 bis. Programmer les posts X (teasing de la newsletter)
+
+```bash
+python3 scripts/post_x.py
+```
+
+(API Late → compte X `@nico16184`, requiert `LATE_API_KEY`. Programme un post
+par news featured, étalés sur les jours suivants : +20 min, +22 h, +46 h. Chaque
+post reprend le `x_post` rédigé à l'étape 2 et renvoie vers la newsletter.
+Vérifie dans la sortie que les posts sont bien `scheduled` ; Late renvoie
+parfois un 500 transitoire, le script retry déjà tout seul.)
 
 ### 6. Commit & push
 
