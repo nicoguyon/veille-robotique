@@ -97,6 +97,18 @@ def main():
             offset = u["update_id"] + 1
             cq = u.get("callback_query")
             if not cq:
+                msg = u.get("message") or {}
+                cid = (msg.get("chat") or {}).get("id")
+                if cid:
+                    print(f"message de chat_id={cid} : {msg.get('text', '')!r}")
+                    try:
+                        tg("sendMessage", {"chat_id": cid,
+                                           "text": ("🤖 Bot de veille robotique connecté !\n"
+                                                    f"chat_id : {cid}\n"
+                                                    "Tu recevras ici chaque jeudi l'édition, les tweets "
+                                                    "programmés et le post viral à valider.")})
+                    except Exception as e:
+                        print("welcome KO:", e)
                 continue
             if CHAT and str(cq.get("message", {}).get("chat", {}).get("id")) != CHAT:
                 continue  # on n'obéit qu'à Nico
